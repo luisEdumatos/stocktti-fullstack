@@ -1,0 +1,28 @@
+<h2>Clients List</h2>
+
+<div class="form-group row">
+  <label class="col-sm-2 col-form-label">Filter By:</label>
+  <div class="col-sm-10">
+    <input [(ngModel)]="filter" class="form-control">
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>CNPJ</th>
+      <th>Endereço</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let client of filteredClients'>
+       <td> {{ client.name }}</td>
+       <td> {{ client.cnpj }}</td>
+       <td> {{ client.address }}</td>
+       <td>
+         <button (click)="deleteById(client.id)" class="btn btn-danger">Delete</button>
+       </td>
+    </tr>
+  </tbody>
+</table>
