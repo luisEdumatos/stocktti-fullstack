@@ -1,6 +1,6 @@
 import { ClientService } from '../services/client.service';
 import { Component, OnInit } from '@angular/core';
-import { Client } from '../models/client';
+import { ClientDTO } from '../models/clientDTO';
 
 @Component({
   templateUrl: '../templates/client-list.component.html'
@@ -8,9 +8,9 @@ import { Client } from '../models/client';
 
 export class ClientListComponent implements OnInit {
 
-  filteredClients: Client[] = [];
+  filteredClients: ClientDTO[] = [];
 
-  _clients: Client[] = [];
+  _clients: ClientDTO[] = [];
 
   _filterBy: string;
 
@@ -43,7 +43,7 @@ export class ClientListComponent implements OnInit {
   set filter(value: string) {
     this._filterBy = value;
 
-    this.filteredClients = this._clients.filter((client : Client) => client.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1);
+    this.filteredClients = this._clients.filter((client : ClientDTO) => client.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1);
   }
 
   get filter() {

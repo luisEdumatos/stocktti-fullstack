@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Client } from "../models/client";
+import { ClientInfoDTO } from "../models/client-infoDTO";
+import { ClientDTO } from "../models/clientDTO";
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,12 @@ export class ClientService {
 
   constructor(private httpClient: HttpClient) { }
 
-  retrieveAll(): Observable<Client[]> {
-    return this.httpClient.get<Client[]>(this.clientsUrl);
+  retrieveAll(): Observable<ClientDTO[]> {
+    return this.httpClient.get<ClientDTO[]>(this.clientsUrl);
   }
 
-  retrieveById(id: number): Observable<Client> {
-    return this.httpClient.get<Client>(`${this.clientsUrl}/${id}`);
+  retrieveById(id: number): Observable<ClientInfoDTO> {
+    return this.httpClient.get<ClientInfoDTO>(`${this.clientsUrl}/${id}`);
   }
 
   deleteById(id: number): Observable<any> {

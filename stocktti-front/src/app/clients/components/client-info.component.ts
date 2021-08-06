@@ -1,8 +1,8 @@
+import { HardwareDTO } from './../../hardwares/models/hardwareDTO';
+import { ClientInfoDTO } from './../models/client-infoDTO';
 import { ClientService } from '../services/client.service';
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { Client } from "../models/client";
-
 
 @Component({
   templateUrl: '../templates/client-info.component.html'
@@ -10,7 +10,9 @@ import { Client } from "../models/client";
 
 export class ClientInfoComponent implements OnInit {
 
-  client: Client;
+  client: ClientInfoDTO;
+
+  hardware: HardwareDTO[];
 
   constructor(private activatedRoute: ActivatedRoute, private clientService: ClientService) { }
 
@@ -20,6 +22,4 @@ export class ClientInfoComponent implements OnInit {
       error: err => console.log('Error', err)
     });
   }
-
-
 }

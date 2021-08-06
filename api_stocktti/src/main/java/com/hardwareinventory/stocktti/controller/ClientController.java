@@ -27,11 +27,13 @@ public class ClientController {
         return clientService.createClient(clientDTO);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public List<ClientDTO> listAll() {
         return clientService.listAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{id}")
     public ClientHardwareDTO findById(@PathVariable Long id) throws ClientNotFoundException {
         return clientService.findById(id);
@@ -42,6 +44,7 @@ public class ClientController {
         return clientService.updateById(id, clientDTO);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) throws ClientNotFoundException, HardwareNotFoundException {

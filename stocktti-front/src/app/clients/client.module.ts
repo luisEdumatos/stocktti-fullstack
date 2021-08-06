@@ -1,3 +1,4 @@
+import { ClientInfoComponent } from './components/client-info.component';
 import { ClientListComponent } from './components/client-list.component';
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
@@ -6,7 +7,8 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    ClientListComponent
+    ClientListComponent,
+    ClientInfoComponent
   ],
   imports: [
     CommonModule,
@@ -14,6 +16,9 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild([
       {
         path: 'clients', component: ClientListComponent
+      },
+      {
+        path: 'clients/info/:id', component: ClientInfoComponent
       }
     ])
   ]
