@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+
+.container table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.container table td {
+  border: solid 1px #000;
+  border-style: solid none;
+  padding: 10px;
+}
+
+.botao-edit {
+  background-color: blue;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 10%;
+  font-size: 14px;
+  margin-right: 3px;
+  transition: .7s ease all;
+}
+
+.botao-edit:hover {
+  opacity: 0.5;
+}
+
+.botao-delete {
+  background-color: red;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10%;
+  font-size: 14px;
+  transition: .7s ease all;
+}
+
+.botao-delete:hover {
+  opacity: 0.5;
+}
+
+/*
+
+
+.filtro {
+  display: flex;
+  flex-direction: row;
+  margin-left: 40px;
+}
+
+.filtro .label {
+  padding-right: 5px;
+  margin-left: 0;
+}
+
+.filtro .pesquisa {
+  width: 80%;
+  margin: 10px;
+}
+
+.tabela {
+  margin: 20px auto;
+  width: auto;
+  border: 1px solid black;
+}
+
+.tabela th {
+  text-align: center;
+}
+
+.tabela td {
+  padding: 20px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.tabela a {
+  margin-right: 5px;
+}
+*/

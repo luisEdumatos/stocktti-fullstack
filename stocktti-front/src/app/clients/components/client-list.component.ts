@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ClientDTO } from '../models/clientDTO';
 
 @Component({
-  templateUrl: '../templates/client-list.component.html'
+  templateUrl: '../templates/client-list.component.html',
+  styleUrls: ['../styles/client-list.component.css']
 })
 
 export class ClientListComponent implements OnInit {

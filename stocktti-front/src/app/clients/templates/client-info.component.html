@@ -1,75 +1,82 @@
-<h2>Client Info</h2>
+<div class="container">
+  <h2>Informações do Cliente</h2>
 
-<hr/>
+  <hr/>
+  <div class="formulario">
+    <form #clientForm="ngForm" *ngIf="_client">
 
-<form #clientForm="ngForm" *ngIf="client">
-
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Name:</label>
-    <div class="col-sm-10">
-      <input [(ngModel)]="client.name" required name="name" #clientName="ngModel" [ngClass]="{'is-invalid': clientName.invalid}" class="form-control">
-      <div class="invalid-feedback">
-          <span>Client name is required</span>
+      <div class="campo"> <!-- class="form-group row"-->
+        <label>Name:</label> <!--class="col-sm-2 col-form-label"-->
+        <div> <!--class="col-sm-10"-->
+          <input [(ngModel)]="_client.name" required name="name" #clientName="ngModel" [ngClass]="{'is-invalid': clientName.invalid}" class="form-control">
+          <div class="invalid-feedback">
+              <span>Client name is required</span>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <div class="campo"> <!--class="form-group row"-->
+        <label>CNPJ:</label> <!-- class="col-sm-2 col-form-label"-->
+        <div> <!--class="col-sm-10"-->
+          <input [(ngModel)]="_client.cnpj" required name="cnpj" #clientCnpj="ngModel" [ngClass]="{'is-invalid': clientCnpj.invalid}" class="form-control">
+          <div class="invalid-feedback">
+              <span>Client CNPJ is required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="campo"> <!-- class="form-group row"-->
+        <label>Address:</label> <!--class="col-sm-2 col-form-label"-->
+        <div> <!-- class="col-sm-10"-->
+          <input [(ngModel)]="_client.address" required name="address" #clientAddress="ngModel" [ngClass]="{'is-invalid': clientAddress.invalid}" class="form-control">
+          <div class="invalid-feedback">
+              <span>Client address is required</span>
+          </div>
+        </div>
+      </div>
+
+      <button [routerLink]="['/clients']" class="botao-voltar">Voltar</button>
+    </form>
   </div>
 
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">CNPJ:</label>
-    <div class="col-sm-10">
-      <input [(ngModel)]="client.cnpj" required name="cnpj" #clientCnpj="ngModel" [ngClass]="{'is-invalid': clientCnpj.invalid}" class="form-control">
-      <div class="invalid-feedback">
-          <span>Client CNPJ is required</span>
-      </div>
-    </div>
-  </div>
+  <h2>Lista de Hardwares</h2>
 
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Address:</label>
-    <div class="col-sm-10">
-      <input [(ngModel)]="client.address" required name="address" #clientAddress="ngModel" [ngClass]="{'is-invalid': clientAddress.invalid}" class="form-control">
-      <div class="invalid-feedback">
-          <span>Client address is required</span>
-      </div>
-    </div>
-  </div>
+  <hr/>
 
-  <button [routerLink]="['/clients']" class="btn btn-secondary">Back</button>
-</form>
-
-<h2>Hardwares List</h2>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Localização</th>
-      <th>Usuario</th>
-      <th>Etiqueta</th>
-      <th>Tipo</th>
-      <th>Marca</th>
-      <th>Modelo</th>
-      <th>SO</th>
-      <th>Processador</th>
-      <th>RAM</th>
-      <th>HD</th>
-      <th>Status</th>
-      <th>Previsão substituição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor='let equipment of client.equipment.values()'>
-      <td> {{ equipment.deviceLocalization }} </td>
-      <td> {{ equipment.deviceOwnerUserName }} </td>
-      <td> {{ equipment.deviceTag }} </td>
-      <td> {{ equipment.deviceType }} </td>
-      <td> {{ equipment.deviceBrand }} </td>
-      <td> {{ equipment.deviceModel }} </td>
-      <td> {{ equipment.deviceSO }} </td>
-      <td> {{ equipment.deviceProcessor }} </td>
-      <td> {{ equipment.deviceRAM }} </td>
-      <td> {{ equipment.deviceHD }} </td>
-      <td> {{ equipment.deviceStatusCondition }} </td>
-      <td> {{ equipment.deviceSwapPrediction }} </td>
-    </tr>
-  </tbody>
-</table>
+  <form #clientForm="ngForm" *ngIf="_client">
+    <table> <!-- class="table table-striped"-->
+      <thead>
+        <tr>
+          <th>Localização</th>
+          <th>Usuario</th>
+          <th>Etiqueta</th>
+          <th>Tipo</th>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>SO</th>
+          <th>Processador</th>
+          <th>RAM</th>
+          <th>HD</th>
+          <th>Status</th>
+          <th>Previsão substituição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let element of _client.equipment'>
+          <td> {{ element.deviceLocalization }} </td>
+          <td> {{ element.deviceOwnerUserName }} </td>
+          <td> {{ element.deviceTag }} </td>
+          <td> {{ element.deviceType }} </td>
+          <td> {{ element.deviceBrand }} </td>
+          <td> {{ element.deviceModel }} </td>
+          <td> {{ element.deviceSO }} </td>
+          <td> {{ element.deviceProcessor }} </td>
+          <td> {{ element.deviceRAM }} </td>
+          <td> {{ element.deviceHD }} </td>
+          <td> {{ element.deviceStatusCondition }} </td>
+          <td> {{ element.deviceSwapPrediction }} </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

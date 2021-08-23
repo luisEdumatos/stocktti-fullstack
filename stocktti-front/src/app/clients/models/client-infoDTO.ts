@@ -1,8 +1,8 @@
-import { HardwareDTO } from './../../hardwares/models/hardwareDTO';
+import { HardwareInfoDTO } from './../../hardwares/models/hardware-infoDTO';
 export class ClientInfoDTO {
   id: number;
   name: string;
   cnpj: string;
   address: string;
-  equipment: HardwareDTO[];
+  equipment: Array<HardwareInfoDTO>;
 }

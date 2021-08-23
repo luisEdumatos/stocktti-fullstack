@@ -1,4 +1,4 @@
-export class HardwareInfotDTO {
+export class HardwareInfoDTO {
   id: number;
   deviceLocalization: string;
   deviceOwnerUserName: string;
