@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>Informações do Cliente</h2>
+  <hr/>
+  <div class="formulario">
+    <form #hardwareForm="ngForm" *ngIf="_hardware">
+
+      <div class="campo"> <!-- class="form-group row"-->
+        <label>Localização:</label> <!--class="col-sm-2 col-form-label"-->
+        <div> <!--class="col-sm-10"-->
+          <input [(ngModel)]="_hardware.deviceLocalization" required name="localization" #hardwareLocalization="ngModel" [ngClass]="{'is-invalid': hardwareLocalization.invalid}" class="form-control">
+          <div class="invalid-feedback">
+              <span>Hardware localization is required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="campo"> <!-- class="form-group row"-->
+        <label>Usuário:</label> <!--class="col-sm-2 col-form-label"-->
+        <div> <!--class="col-sm-10"-->
+          <input [(ngModel)]="_hardware.deviceOwnerUserName" required name="user" #hardwareUser="ngModel" [ngClass]="{'is-invalid': hardwareUser.invalid}" class="form-control">
+          <div class="invalid-feedback">
+              <span>Hardware owner user is required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="campo"> <!-- class="form-group row"-->
+        <label>Etiqueta:</label> <!--class="col-sm-2 col-form-label"-->
+        <div> <!--class="col-sm-10"-->
+          <input [(ngModel)]="_hardware.deviceTag" required name="tag" #hardwareTag="ngModel" [ngClass]="{'is-invalid': hardwareTag.invalid}" class="form-control">
+          <div class="invalid-feedback">
+              <span>Hardware tag is required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="campo"> <!-- class="form-group row"-->
+        <label>Tipo:</label> <!--class="col-sm-2 col-form-label"-->
+        <div> <!--class="col-sm-10"-->
+          <input [(ngModel)]="_hardware.deviceType" required name="type" #hardwareType="ngModel" [ngClass]="{'is-invalid': hardwareType.invalid}" class="form-control">
+          <div class="invalid-feedback">
+              <span>Hardware type is required</span>
+          </div>
+        </div>
+      </div>
+
+      <button [routerLink]="['/clients/info', client_id]" class="botao-voltar">Voltar</button>
+    </form>
+  </div>
+</div>

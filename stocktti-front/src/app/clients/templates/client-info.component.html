@@ -75,6 +75,10 @@
           <td> {{ element.deviceHD }} </td>
           <td> {{ element.deviceStatusCondition }} </td>
           <td> {{ element.deviceSwapPrediction }} </td>
+          <td class="botoes">
+            <a [routerLink]="['/clients/info', _client.id, 'hardware', element.id]" class="botao-edit">Editar</a>
+            <button class="botao-delete">Deletar</button>
+          </td>
         </tr>
       </tbody>
     </table>

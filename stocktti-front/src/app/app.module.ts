@@ -1,3 +1,4 @@
+import { HardwareModule } from './hardwares/hardware.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +16,7 @@ import { ClientModule } from './clients/client.module';
     FormsModule,
     HttpClientModule,
     ClientModule,
+    HardwareModule,
     RouterModule.forRoot([
       {
         path: '', redirectTo: 'clients', pathMatch: 'full'

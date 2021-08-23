@@ -30,6 +30,7 @@ public class HardwareController {
         return hardwareService.listAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{id}")
     public HardwareDTO findById(@PathVariable Long id) throws HardwareNotFoundException {
         return hardwareService.findById(id);
@@ -40,6 +41,7 @@ public class HardwareController {
         return hardwareService.updateById(id, hardwareDTO);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) throws HardwareNotFoundException {
