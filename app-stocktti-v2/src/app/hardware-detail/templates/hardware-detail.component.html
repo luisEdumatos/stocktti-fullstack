@@ -9,7 +9,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceLocalization" required name="localization" #hardwareLocalization="ngModel" [ngClass]="{'is-invalid': hardwareLocalization.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware localization is required</span>
+              <span>A localização não pode ficar em branco</span>
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceOwnerUserName" required name="user" #hardwareUser="ngModel" [ngClass]="{'is-invalid': hardwareUser.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware owner user is required</span>
+              <span>Se não tiver usuário, digite "Reserva" para melhor organização</span>
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceTag" required name="tag" #hardwareTag="ngModel" [ngClass]="{'is-invalid': hardwareTag.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware tag is required</span>
+              <span>Especifique uma etiqueta</span>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceType" required name="type" #hardwareType="ngModel" [ngClass]="{'is-invalid': hardwareType.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware type is required</span>
+              <span>Especifique um tipo DESKTOP ou NOTEBOOK</span>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceBrand" required name="brand" #hardwareBrand="ngModel" [ngClass]="{'is-invalid': hardwareBrand.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware brand is required</span>
+              <span>Especifique uma marca</span>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceModel" required name="model" #hardwareModel="ngModel" [ngClass]="{'is-invalid': hardwareModel.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware model is required</span>
+              <span>Especifique um modelo</span>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceSO" required name="so" #hardwareSO="ngModel" [ngClass]="{'is-invalid': hardwareSO.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware SO is required</span>
+              <span>Especifique um sitema operacional</span>
           </div>
         </div>
       </div>
@@ -79,7 +79,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceSOLicensed" required name="soLicensed" #hardwareSoLicensed="ngModel" [ngClass]="{'is-invalid': hardwareSoLicensed.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware SO License is required</span>
+              <span>O sistema operacional é licenciado? true or false</span>
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceOfficeLicensed" required name="officeLicensed" #hardwareOfficeLicensed="ngModel" [ngClass]="{'is-invalid': hardwareOfficeLicensed.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware Office License is required</span>
+              <span>O pacote office é licenciado? true or false</span>
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceAntivirusLicensed" required name="antivirusLicensed" #hardwareAntivirusLicensed="ngModel" [ngClass]="{'is-invalid': hardwareAntivirusLicensed.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware Antivirus License is required</span>
+              <span>O antivirus é licenciado? true or false</span>
           </div>
         </div>
       </div>
@@ -109,7 +109,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceProcessor" required name="processor" #hardwareProcessor="ngModel" [ngClass]="{'is-invalid': hardwareProcessor.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware processor is required</span>
+              <span>Especifique o processador</span>
           </div>
         </div>
       </div>
@@ -119,7 +119,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceProcessorGeneration" required name="processorGeneration" #hardwareProcessorGeneration="ngModel" [ngClass]="{'is-invalid': hardwareProcessorGeneration.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware processor generation is required</span>
+              <span>Especifique a geração do processador</span>
           </div>
         </div>
       </div>
@@ -129,7 +129,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceProcessorGHZ" required name="processorGhz" #hardwareProcessorGhz="ngModel" [ngClass]="{'is-invalid': hardwareProcessorGhz.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware processor GHZ is required</span>
+              <span>Especifique quantos Ghz possui o processador</span>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceRAM" required name="ram" #hardwareRAM="ngModel" [ngClass]="{'is-invalid': hardwareRAM.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware RAM is required</span>
+              <span>Especifique quanto de memória o equipamento possui</span>
           </div>
         </div>
       </div>
@@ -149,7 +149,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceHD" required name="hd" #hardwareHD="ngModel" [ngClass]="{'is-invalid': hardwareHD.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware HD is required</span>
+              <span>Especifique quanto de HD/SSD o equipamento possui</span>
           </div>
         </div>
       </div>
@@ -159,7 +159,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceStatusCondition" required name="condition" #hardwareCondition="ngModel" [ngClass]="{'is-invalid': hardwareCondition.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware condition is required</span>
+              <span>Especifique as condições do equipamento: OBSOLETO, MEIO-TERMO, MODERNO</span>
           </div>
         </div>
       </div>
@@ -169,7 +169,7 @@
         <div> <!--class="col-sm-10"-->
           <input [(ngModel)]="_hardware.deviceSwapPrediction" required name="swap" #hardwareSwap="ngModel" [ngClass]="{'is-invalid': hardwareSwap.invalid}" class="form-control">
           <div class="invalid-feedback">
-              <span>Hardware swap prediction is required</span>
+              <span>Especifique uma previsão para substituição do equipamento</span>
           </div>
         </div>
       </div>
