@@ -32,7 +32,13 @@ export class ClientComponent implements OnInit {
   }
 
   deleteById(client_id: number): void {
-
+    this.clientService.deleteById(client_id).subscribe({
+      next: () => {
+        console.log(`Client with id ${client_id} deleted with sucess. `);
+        this.getClients();
+      },
+      error: err => console.log('Error', err)
+    });
   }
 
   set filter(value: string) {

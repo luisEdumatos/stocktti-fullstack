@@ -15,4 +15,8 @@ export class ClientService {
   listAll(): Observable<Client[]> {
     return this.httpClient.get<Client[]>(this.clientsUrl);
   }
+
+  deleteById(id: number): Observable<any> {
+    return this.httpClient.delete<any>(`${this.clientsUrl}/${id}`);
+  }
 }

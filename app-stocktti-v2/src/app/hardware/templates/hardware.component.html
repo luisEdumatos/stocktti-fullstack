@@ -37,7 +37,7 @@
           <td> {{ element.deviceSwapPrediction }} </td>
           <td>
             <button [routerLink]="['/clients/info', client_id, 'hardware', element.id]" class="botao-edit">Editar</button>
-            <button class="botao-delete">Deletar</button>
+            <button (click)="deleteById(element.id)" class="botao-delete">Deletar</button>
           </td>
         </tr>
       </tbody>
