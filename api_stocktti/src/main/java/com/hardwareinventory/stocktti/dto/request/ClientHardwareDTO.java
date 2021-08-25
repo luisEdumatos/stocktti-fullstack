@@ -1,6 +1,5 @@
 package com.hardwareinventory.stocktti.dto.request;
 
-import com.hardwareinventory.stocktti.entity.Hardware;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,5 +29,5 @@ public class ClientHardwareDTO {
     @Size(min = 10, max = 100)
     private String address;
 
-    private final List<Hardware> equipment = new ArrayList<>();
+    private final List<HardwareClientDTO> equipment = new ArrayList<>();
 }

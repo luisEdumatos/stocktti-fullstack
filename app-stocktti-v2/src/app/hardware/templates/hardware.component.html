@@ -1,1 +1,46 @@
-<p>hardware works!</p>
+<div class="container">
+  <h2>Lista de equipamentos</h2>
+
+  <hr/>
+
+  <form #hardwareForm="ngForm" *ngIf="hardwares">
+    <table>
+      <thead>
+        <tr>
+          <th>Localização</th>
+          <th>Usuario</th>
+          <th>Etiqueta</th>
+          <th>Tipo</th>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>SO</th>
+          <th>Processador</th>
+          <th>RAM</th>
+          <th>HD</th>
+          <th>Status</th>
+          <th>Previsão substituição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let element of hardwares'>
+          <td> {{ element.deviceLocalization }} </td>
+          <td> {{ element.deviceOwnerUserName }} </td>
+          <td> {{ element.deviceTag }} </td>
+          <td> {{ element.deviceType }} </td>
+          <td> {{ element.deviceBrand }} </td>
+          <td> {{ element.deviceModel }} </td>
+          <td> {{ element.deviceSO }} </td>
+          <td> {{ element.deviceProcessor }} </td>
+          <td> {{ element.deviceRAM }} </td>
+          <td> {{ element.deviceHD }} </td>
+          <td> {{ element.deviceStatusCondition }} </td> <!--[class.selected]="element.deviceStatusCondition === 'OBSOLETO' || [class.selected]...."-->
+          <td> {{ element.deviceSwapPrediction }} </td>
+          <td>
+            <button [routerLink]="['/clients/info', client_id, 'hardware', element.id]" class="botao-edit">Editar</button>
+            <button class="botao-delete">Deletar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
