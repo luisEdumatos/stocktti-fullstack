@@ -73,7 +73,7 @@
           <td> {{ element.deviceProcessor }} </td>
           <td> {{ element.deviceRAM }} </td>
           <td> {{ element.deviceHD }} </td>
-          <td> {{ element.deviceStatusCondition }} </td>
+          <td> {{ element.deviceStatusCondition }} </td> <!--[class.selected]="element.deviceStatusCondition === 'OBSOLETO' || [class.selected]...."-->
           <td> {{ element.deviceSwapPrediction }} </td>
           <td class="botoes">
             <a [routerLink]="['/clients/info', _client.id, 'hardware', element.id]" class="botao-edit">Editar</a>
