@@ -16,4 +16,7 @@ export class ClientDetailService {
     return this.httpClient.get<ClientDetail>(`${this.clientUrl}/${id}`);
   }
 
+  update(client: ClientDetail): Observable<ClientDetail> {
+    return this.httpClient.put<ClientDetail>(`${this.clientUrl}/${client.id}`, client);
+  }
 }

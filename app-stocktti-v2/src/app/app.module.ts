@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ClientDetailComponent } from './client-detail/components/client-detail.component';
 import { HardwareDetailComponent } from './hardware-detail/components/hardware-detail.component';
+import { HeaderComponent } from './header/components/header.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HardwareDetailComponent } from './hardware-detail/components/hardware-d
     ClientComponent,
     HardwareComponent,
     ClientDetailComponent,
-    HardwareDetailComponent
+    HardwareDetailComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

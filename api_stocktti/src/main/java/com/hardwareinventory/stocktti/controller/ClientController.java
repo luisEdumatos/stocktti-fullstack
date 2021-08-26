@@ -21,6 +21,7 @@ public class ClientController {
 
     private ClientService clientService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public MessageResponseDTO createClient(@RequestBody @Valid ClientDTO clientDTO) {
@@ -39,6 +40,7 @@ public class ClientController {
         return clientService.findById(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/{id}")
     public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid ClientDTO clientDTO) throws ClientNotFoundException {
         return clientService.updateById(id, clientDTO);

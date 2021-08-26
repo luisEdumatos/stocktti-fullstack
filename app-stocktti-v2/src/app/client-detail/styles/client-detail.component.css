@@ -47,6 +47,24 @@ h2 {
   opacity: 0.5;
 }
 
+.formulario .botao-salvar {
+  background-color: green;
+  color: white;
+  text-decoration: none;
+  margin-top: 5px;
+  margin-right: 3px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10%;
+  font-size: 14px;
+  transition: .7s ease all;
+  float: right;
+}
+
+.botao-salvar:hover {
+  opacity: 0.5;
+}
+
 .botoes {
   display: flex;
   flex-direction: column;

@@ -19,6 +19,7 @@ public class HardwareController {
 
     private HardwareService hardwareService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public MessageResponseDTO createHardware(@RequestBody @Valid HardwareDTO hardwareDTO) {
@@ -36,6 +37,7 @@ public class HardwareController {
         return hardwareService.findById(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/{id}")
     public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid HardwareDTO hardwareDTO) throws HardwareNotFoundException {
         return hardwareService.updateById(id, hardwareDTO);

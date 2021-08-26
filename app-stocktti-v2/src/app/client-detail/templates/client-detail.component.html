@@ -34,8 +34,8 @@
           </div>
         </div>
       </div>
-
       <button [routerLink]="['/clients']" class="botao-voltar">Voltar</button>
+      <button [disabled]="clientForm.invalid" (click)="update()" class="botao-salvar btn">Salvar</button>
     </form>
   </div>
 </div>
