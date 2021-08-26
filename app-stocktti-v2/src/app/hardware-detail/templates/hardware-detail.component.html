@@ -173,8 +173,8 @@
           </div>
         </div>
       </div>
-
       <button (click)="goBack()" class="botao-voltar">Voltar</button>
+      <button [disabled]="hardwareForm.invalid" (click)="update()" class="botao-salvar btn">Salvar</button>
     </form>
   </div>
 </div>

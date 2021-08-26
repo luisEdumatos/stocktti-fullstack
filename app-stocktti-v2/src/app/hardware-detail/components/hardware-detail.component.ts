@@ -26,6 +26,13 @@ export class HardwareDetailComponent implements OnInit {
     });
   }
 
+  update(): void {
+    this.hardwareDetailService.update(this._hardware).subscribe({
+      next: client => console.log(`Hardware with id ${this._hardware.id} saved with success`),
+      error: err => console.log(`Error`, err)
+    });
+  }
+
   goBack(): void {
     this.location.back();
   }

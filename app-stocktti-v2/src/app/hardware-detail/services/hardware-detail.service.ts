@@ -14,4 +14,8 @@ export class HardwareDetailService {
   findById(id: number): Observable<HardwareDetail> {
     return this.httpClient.get<HardwareDetail>(`${this.hardwareUrl}/${id}`);
   }
+
+  update (hardwareDetail: HardwareDetail): Observable<HardwareDetail> {
+    return this.httpClient.put<HardwareDetail>(`${this.hardwareUrl}/${hardwareDetail.id}`, hardwareDetail);
+  }
 }
