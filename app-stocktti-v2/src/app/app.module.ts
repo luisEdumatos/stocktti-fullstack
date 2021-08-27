@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ClientDetailComponent } from './client-detail/components/client-detail.component';
 import { HardwareDetailComponent } from './hardware-detail/components/hardware-detail.component';
 import { HeaderComponent } from './header/components/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { HeaderComponent } from './header/components/header.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
