@@ -24,8 +24,8 @@
         <td> {{ client.cnpj }}</td>
         <td> {{ client.address }}</td>
         <td>
-          <button [routerLink]="['/clients/info', client.id]" class="botao-edit">Editar</button>
-          <button (click)="deleteById(client.id)" class="botao-delete">Deletar</button>
+          <button [routerLink]="['/clients/info', client.id]" pButton pRipple type="button" label="Editar" class="p-button-outlined"></button>
+          <button (click)="deleteById(client.id)" pButton pRipple type="button" label="Deletar" class="p-button-outlined p-button-danger"></button>
         </td>
       </tr>
     </tbody>

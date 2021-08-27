@@ -25,33 +25,6 @@ h2 {
   padding: 10px;
 }
 
-.botao-edit {
-  background-color: blue;
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 10%;
-  font-size: 14px;
+.p-button-outlined {
   margin-right: 3px;
-  transition: .7s ease all;
-}
-
-.botao-edit:hover {
-  opacity: 0.5;
-}
-
-.botao-delete {
-  background-color: red;
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 10%;
-  font-size: 14px;
-  transition: .7s ease all;
-}
-
-.botao-delete:hover {
-  opacity: 0.5;
 }

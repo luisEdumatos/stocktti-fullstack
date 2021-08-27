@@ -173,8 +173,8 @@
           </div>
         </div>
       </div>
-      <button (click)="goBack()" class="botao-voltar">Voltar</button>
-      <button [disabled]="hardwareForm.invalid" (click)="update()" class="botao-salvar btn">Salvar</button>
+      <button (click)="goBack()" pButton pRipple type="button" label="Voltar" class="p-button-outlined p-button-secondary"></button>
+      <button [disabled]="hardwareForm.invalid" (click)="update()" pButton pRipple type="button" label="Salvar" class="p-button-outlined p-button-success"></button>
     </form>
   </div>
 </div>

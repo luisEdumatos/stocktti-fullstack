@@ -36,8 +36,8 @@
           <td> {{ element.deviceStatusCondition }} </td> <!--[class.selected]="element.deviceStatusCondition === 'OBSOLETO' || [class.selected]...."-->
           <td> {{ element.deviceSwapPrediction }} </td>
           <td>
-            <button [routerLink]="['/clients/info', client_id, 'hardware', element.id]" class="botao-edit">Editar</button>
-            <button (click)="deleteById(element.id)" class="botao-delete">Deletar</button>
+            <button [routerLink]="['/clients/info', client_id, 'hardware', element.id]" pButton pRipple type="button" label="Editar" class="p-button-outlined edit"></button>
+            <button (click)="deleteById(element.id)" pButton pRipple type="button" label="Deletar" class="p-button-outlined p-button-danger"></button>
           </td>
         </tr>
       </tbody>
