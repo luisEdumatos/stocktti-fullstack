@@ -11,6 +11,7 @@ import { ActivatedRoute } from "@angular/router";
 export class ClientDetailComponent implements OnInit {
 
   _client: ClientDetail;
+  value2: string;
 
   constructor(private activatedRoute: ActivatedRoute, private clientDetailService: ClientDetailService) { }
 

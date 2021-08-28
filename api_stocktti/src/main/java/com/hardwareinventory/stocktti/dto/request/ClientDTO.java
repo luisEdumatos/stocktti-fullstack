@@ -24,7 +24,7 @@ public class ClientDTO {
     private String name;
 
     @NotEmpty
-    @Size(min = 10, max = 14)
+    @Size(min = 10, max = 18)
     private String cnpj;
 
     @NotEmpty

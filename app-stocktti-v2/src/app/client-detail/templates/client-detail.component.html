@@ -6,33 +6,26 @@
     <form #clientForm="ngForm" *ngIf="_client">
       <div class="campo"> <!-- class="form-group row"-->
         <label>Nome:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_client.name" required name="name" #clientName="ngModel" [ngClass]="{'is-invalid': clientName.invalid}" class="form-control">
-          <div class="invalid-feedback">
-              <span>Nome não pode ficar em branco</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="campo"> <!--class="form-group row"-->
-        <label>CNPJ:</label> <!-- class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_client.cnpj" required name="cnpj" #clientCnpj="ngModel" [ngClass]="{'is-invalid': clientCnpj.invalid}" class="form-control">
-          <div class="invalid-feedback">
-              <span>Digite um CNPJ válido</span>
-          </div>
+        <div class="p-field"> <!--class="col-sm-10"-->
+          <input pInputText [(ngModel)]="_client.name" required name="name" #clientName="ngModel" [ngClass]="{'is-invalid': clientName.invalid}" class="form-input">
         </div>
       </div>
 
       <div class="campo"> <!-- class="form-group row"-->
         <label>Endereço:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!-- class="col-sm-10"-->
-          <input [(ngModel)]="_client.address" required name="address" #clientAddress="ngModel" [ngClass]="{'is-invalid': clientAddress.invalid}" class="form-control">
-          <div class="invalid-feedback">
-              <span>Endereço não pode ficar em branco</span>
-          </div>
+        <div class="p-field"> <!-- class="col-sm-10"-->
+          <input pInputText [(ngModel)]="_client.address" required name="address" #clientAddress="ngModel" [ngClass]="{'is-invalid': clientAddress.invalid}" class="form-input">
         </div>
       </div>
+
+      <div class="campo"> <!--class="form-group row"-->
+        <label>CNPJ:</label> <!-- class="col-sm-2 col-form-label"-->
+        <div class="p-col-12 p-md-6 p-lg-4"> <!--class="col-sm-10"-->
+          <!-- <input [(ngModel)]="_client.cnpj" required name="cnpj" #clientCnpj="ngModel" [ngClass]="{'is-invalid': clientCnpj.invalid}"> -->
+          <p-inputMask mask="99.999.999/0009-99" [(ngModel)]="_client.cnpj" required name="cnpj" #clientCnpj="ngModel" [ngClass]="{'is-invalid': clientCnpj.invalid}" placeholder="a*-999-a999" class="form-input"></p-inputMask>
+        </div>
+      </div>
+
       <button [routerLink]="['/clients']" pButton pRipple type="button" label="Voltar" class="p-button-outlined p-button-secondary"></button>
       <button [disabled]="clientForm.invalid" (click)="update()" pButton pRipple type="button" label="Salvar" class="p-button-outlined p-button-success"></button>
     </form>
