@@ -41,6 +41,10 @@ export class ClientComponent implements OnInit {
     });
   }
 
+  openNew(): void {
+
+  }
+
   set filter(value: string) {
     this._filterBy = value;
 

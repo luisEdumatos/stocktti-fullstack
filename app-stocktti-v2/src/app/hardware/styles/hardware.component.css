@@ -5,50 +5,23 @@
 
 h2 {
   margin-top: 20px;
-  margin-bottom: 20px;
   text-align: center;
 }
 
-.container {
+.card {
   margin-top: 20px;
 }
 
-.container table {
-  border-collapse: separate;
-  border-spacing: 0 10px;
-  width: 100%;
+.card td {
   text-align: center;
+  font-size: 12px;
 }
 
-.container table td {
-  border: solid 1px #000;
-  border-style: solid none;
-  padding: 10px;
+.card th {
+  text-align: center;
+  font-size: 12px;
 }
 
-.formulario .botao-voltar {
-  background-color: gray;
-  color: white;
-  text-decoration: none;
-  margin-top: 5px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 10%;
-  font-size: 14px;
-  transition: .7s ease all;
-  float: right;
+.p-button-rounded.p-button-success {
+  margin-bottom: 4px;
 }
-
-.formulario {
-  margin-bottom: 70px;
-}
-
-.p-button-outlined.edit {
-  padding: 5px 15px;
-  margin-bottom: 3px;
-}
-
-.p-button-outlined.p-button-danger {
-  padding: 5px 10px;
-}
-

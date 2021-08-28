@@ -11,6 +11,9 @@ import { HardwareDetailComponent } from './hardware-detail/components/hardware-d
 import { HeaderComponent } from './header/components/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
+import {ToolbarModule} from 'primeng/toolbar';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import {ButtonModule} from 'primeng/button';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ButtonModule
+    ButtonModule,
+    TableModule,
+    ToolbarModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
