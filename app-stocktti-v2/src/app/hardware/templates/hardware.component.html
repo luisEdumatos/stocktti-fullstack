@@ -25,13 +25,13 @@
           <th>Etiqueta</th>
           <th>Tipo</th>
           <th>Marca</th>
-          <th>Modelo</th>
+          <!-- <th>Modelo</th> -->
           <th>SO</th>
           <th>Processador</th>
           <th>RAM</th>
           <th>HD</th>
           <th>Status</th>
-          <th>Previsão substituição</th>
+          <!-- <th>Previsão substituição</th> -->
           <th> </th>
         </tr>
     </ng-template>
@@ -42,13 +42,13 @@
           <td> {{ filteredHardware.deviceTag }} </td>
           <td> {{ filteredHardware.deviceType }} </td>
           <td> {{ filteredHardware.deviceBrand }} </td>
-          <td> {{ filteredHardware.deviceModel }} </td>
+          <!-- <td> {{ filteredHardware.deviceModel }} </td> -->
           <td> {{ filteredHardware.deviceSO }} </td>
           <td> {{ filteredHardware.deviceProcessor }} </td>
           <td> {{ filteredHardware.deviceRAM }} </td>
           <td> {{ filteredHardware.deviceHD }} </td>
           <td> {{ filteredHardware.deviceStatusCondition }} </td>
-          <td> {{ filteredHardware.deviceSwapPrediction }} </td>
+          <!-- <td> {{ filteredHardware.deviceSwapPrediction }} </td> -->
           <td class="botoes">
             <button [routerLink]="['/clients/info', client_id, 'hardware', filteredHardware.id]" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"></button>
             <button (click)="deleteById(filteredHardware.id)" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
@@ -57,52 +57,3 @@
     </ng-template>
   </p-table>
 </div>
-
-
-<!--
-<div class="container">
-  <h2>Lista de equipamentos</h2>
-
-  <hr/>
-
-  <form #hardwareForm="ngForm" *ngIf="hardwares">
-    <table>
-      <thead>
-        <tr>
-          <th>Localização</th>
-          <th>Usuario</th>
-          <th>Etiqueta</th>
-          <th>Tipo</th>
-          <th>Marca</th>
-          <th>Modelo</th>
-          <th>SO</th>
-          <th>Processador</th>
-          <th>RAM</th>
-          <th>HD</th>
-          <th>Status</th>
-          <th>Previsão substituição</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor='let element of hardwares'>
-          <td> {{ element.deviceLocalization }} </td>
-          <td> {{ element.deviceOwnerUserName }} </td>
-          <td> {{ element.deviceTag }} </td>
-          <td> {{ element.deviceType }} </td>
-          <td> {{ element.deviceBrand }} </td>
-          <td> {{ element.deviceModel }} </td>
-          <td> {{ element.deviceSO }} </td>
-          <td> {{ element.deviceProcessor }} </td>
-          <td> {{ element.deviceRAM }} </td>
-          <td> {{ element.deviceHD }} </td>
-          <td> {{ element.deviceStatusCondition }} </td>
-          <td> {{ element.deviceSwapPrediction }} </td>
-          <td>
-            <button [routerLink]="['/clients/info', client_id, 'hardware', element.id]" pButton pRipple type="button" label="Editar" class="p-button-outlined edit"></button>
-            <button (click)="deleteById(element.id)" pButton pRipple type="button" label="Deletar" class="p-button-outlined p-button-danger"></button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </form>
-</div> -->

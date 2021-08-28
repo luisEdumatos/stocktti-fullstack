@@ -37,10 +37,6 @@ public class HardwareClientDTO {
     private String deviceBrand;
 
     @NotEmpty
-    @Size(max = 50)
-    private String deviceModel;
-
-    @NotEmpty
     @Size(min = 5, max = 40)
     private String deviceSO;
 
@@ -59,9 +55,5 @@ public class HardwareClientDTO {
     @NotNull
     @Enumerated(EnumType.STRING)
     private DeviceStatusCondition deviceStatusCondition;
-
-    @NotEmpty
-    @Size(min = 4, max = 10)
-    private String deviceSwapPrediction;
 
 }

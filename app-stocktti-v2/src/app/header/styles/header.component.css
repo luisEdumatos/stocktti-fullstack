@@ -1,3 +1,10 @@
-a {
-  margin: 5px 10px;
+.my-nav {
+  background-color: black;
+  padding: 20px 10px;
+}
+
+.my-link {
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
 }
