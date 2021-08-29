@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class HardwareDetailComponent implements OnInit {
 
   _hardware: HardwareDetail;
+  value1: string;
 
   constructor(private activatedRoute: ActivatedRoute, private hardwareDetailService: HardwareDetailService, private location: Location) { }
 
