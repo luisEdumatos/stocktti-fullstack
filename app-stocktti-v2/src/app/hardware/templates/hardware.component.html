@@ -25,13 +25,11 @@
           <th>Etiqueta</th>
           <th>Tipo</th>
           <th>Marca</th>
-          <!-- <th>Modelo</th> -->
           <th>SO</th>
           <th>Processador</th>
           <th>RAM</th>
           <th>HD</th>
           <th>Status</th>
-          <!-- <th>Previsão substituição</th> -->
           <th> </th>
         </tr>
     </ng-template>
@@ -42,13 +40,11 @@
           <td> {{ filteredHardware.deviceTag }} </td>
           <td> {{ filteredHardware.deviceType }} </td>
           <td> {{ filteredHardware.deviceBrand }} </td>
-          <!-- <td> {{ filteredHardware.deviceModel }} </td> -->
           <td> {{ filteredHardware.deviceSO }} </td>
           <td> {{ filteredHardware.deviceProcessor }} </td>
           <td> {{ filteredHardware.deviceRAM }} </td>
           <td> {{ filteredHardware.deviceHD }} </td>
           <td> {{ filteredHardware.deviceStatusCondition }} </td>
-          <!-- <td> {{ filteredHardware.deviceSwapPrediction }} </td> -->
           <td class="botoes">
             <button [routerLink]="['/clients/info', client_id, 'hardware', filteredHardware.id]" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"></button>
             <button (click)="deleteById(filteredHardware.id)" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>

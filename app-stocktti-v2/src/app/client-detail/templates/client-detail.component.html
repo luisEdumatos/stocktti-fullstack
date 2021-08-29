@@ -4,9 +4,9 @@
   <hr/>
   <div class="formulario">
     <form #clientForm="ngForm" *ngIf="_client">
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Nome:</label> <!--class="col-sm-2 col-form-label"-->
-        <div class="p-field"> <!--class="col-sm-10"-->
+      <div class="campo">
+        <label>Nome:</label>
+        <div class="p-field">
           <input pInputText [(ngModel)]="_client.name" required name="name" #clientName="ngModel" [ngClass]="{'is-invalid': clientName.invalid}" class="form-input">
           <div class="invalid-feedback">
             <span>O nome do Cliente não pode ficar em branco</span>
@@ -14,9 +14,9 @@
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Endereço:</label> <!--class="col-sm-2 col-form-label"-->
-        <div class="p-field"> <!-- class="col-sm-10"-->
+      <div class="campo">
+        <label>Endereço:</label>
+        <div class="p-field">
           <input pInputText [(ngModel)]="_client.address" required name="address" #clientAddress="ngModel" [ngClass]="{'is-invalid': clientAddress.invalid}" class="form-input">
           <div class="invalid-feedback">
             <span>O endereço não pode ficar em branco</span>
@@ -24,10 +24,9 @@
         </div>
       </div>
 
-      <div class="campo"> <!--class="form-group row"-->
-        <label>CNPJ:</label> <!-- class="col-sm-2 col-form-label"-->
-        <div class="p-col-12 p-md-6 p-lg-4"> <!--class="col-sm-10"-->
-          <!-- <input [(ngModel)]="_client.cnpj" required name="cnpj" #clientCnpj="ngModel" [ngClass]="{'is-invalid': clientCnpj.invalid}"> -->
+      <div class="campo">
+        <label>CNPJ:</label>
+        <div class="p-col-12 p-md-6 p-lg-4">
           <p-inputMask mask="99.999.999/0009-99" [(ngModel)]="_client.cnpj" required name="cnpj" #clientCnpj="ngModel" [ngClass]="{'is-invalid': clientCnpj.invalid}" placeholder="a*-999-a999" class="form-input"></p-inputMask>
           <div class="invalid-feedback">
             <span>O CNPJ não pode ficar em branco</span>

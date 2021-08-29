@@ -30,6 +30,19 @@ h2 {
   margin-bottom: 70px;
 }
 
+.form-input {
+  width: 100%;
+}
+
+.campo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.p-field {
+  margin-top: 2px;
+}
+
 .p-button-outlined {
   margin-top: 5px;
   margin-right: 3px;

@@ -3,170 +3,170 @@
   <hr/>
   <div class="formulario">
     <form #hardwareForm="ngForm" *ngIf="_hardware">
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Localização:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceLocalization" required name="localization" #hardwareLocalization="ngModel" [ngClass]="{'is-invalid': hardwareLocalization.invalid}" class="form-control">
+      <div class="campo">
+        <label>Localização:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceLocalization" required name="localization" #hardwareLocalization="ngModel" [ngClass]="{'is-invalid': hardwareLocalization.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>A localização não pode ficar em branco</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Usuário:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceOwnerUserName" required name="user" #hardwareUser="ngModel" [ngClass]="{'is-invalid': hardwareUser.invalid}" class="form-control">
+      <div class="campo">
+        <label>Usuário:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceOwnerUserName" required name="user" #hardwareUser="ngModel" [ngClass]="{'is-invalid': hardwareUser.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>Se não tiver usuário, digite "Reserva" para melhor organização</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Etiqueta:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceTag" required name="tag" #hardwareTag="ngModel" [ngClass]="{'is-invalid': hardwareTag.invalid}" class="form-control">
+      <div class="campo">
+        <label>Etiqueta:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceTag" required name="tag" #hardwareTag="ngModel" [ngClass]="{'is-invalid': hardwareTag.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>Especifique uma etiqueta</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Tipo:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceType" required name="type" #hardwareType="ngModel" [ngClass]="{'is-invalid': hardwareType.invalid}" class="form-control">
+      <div class="campo">
+        <label>Tipo:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceType" required name="type" #hardwareType="ngModel" [ngClass]="{'is-invalid': hardwareType.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>Especifique um tipo DESKTOP ou NOTEBOOK</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Marca:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceBrand" required name="brand" #hardwareBrand="ngModel" [ngClass]="{'is-invalid': hardwareBrand.invalid}" class="form-control">
+      <div class="campo">
+        <label>Marca:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceBrand" required name="brand" #hardwareBrand="ngModel" [ngClass]="{'is-invalid': hardwareBrand.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>Especifique uma marca</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Modelo:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceModel" required name="model" #hardwareModel="ngModel" [ngClass]="{'is-invalid': hardwareModel.invalid}" class="form-control">
+      <div class="campo">
+        <label>Modelo:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceModel" required name="model" #hardwareModel="ngModel" [ngClass]="{'is-invalid': hardwareModel.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>Especifique um modelo</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Sistema Operacional:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceSO" required name="so" #hardwareSO="ngModel" [ngClass]="{'is-invalid': hardwareSO.invalid}" class="form-control">
+      <div class="campo">
+        <label>Sistema Operacional:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceSO" required name="so" #hardwareSO="ngModel" [ngClass]="{'is-invalid': hardwareSO.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>Especifique um sitema operacional</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>SO Licenciado?</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceSOLicensed" required name="soLicensed" #hardwareSoLicensed="ngModel" [ngClass]="{'is-invalid': hardwareSoLicensed.invalid}" class="form-control">
+      <div class="campo">
+        <label>SO Licenciado?</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceSOLicensed" required name="soLicensed" #hardwareSoLicensed="ngModel" [ngClass]="{'is-invalid': hardwareSoLicensed.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>O sistema operacional é licenciado? true or false</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Pacote Office Licenciado?</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceOfficeLicensed" required name="officeLicensed" #hardwareOfficeLicensed="ngModel" [ngClass]="{'is-invalid': hardwareOfficeLicensed.invalid}" class="form-control">
+      <div class="campo">
+        <label>Pacote Office Licenciado?</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceOfficeLicensed" required name="officeLicensed" #hardwareOfficeLicensed="ngModel" [ngClass]="{'is-invalid': hardwareOfficeLicensed.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>O pacote office é licenciado? true or false</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Antivirus Licenciado?</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceAntivirusLicensed" required name="antivirusLicensed" #hardwareAntivirusLicensed="ngModel" [ngClass]="{'is-invalid': hardwareAntivirusLicensed.invalid}" class="form-control">
+      <div class="campo">
+        <label>Antivirus Licenciado?</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceAntivirusLicensed" required name="antivirusLicensed" #hardwareAntivirusLicensed="ngModel" [ngClass]="{'is-invalid': hardwareAntivirusLicensed.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>O antivirus é licenciado? true or false</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Processador:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceProcessor" required name="processor" #hardwareProcessor="ngModel" [ngClass]="{'is-invalid': hardwareProcessor.invalid}" class="form-control">
+      <div class="campo">
+        <label>Processador:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceProcessor" required name="processor" #hardwareProcessor="ngModel" [ngClass]="{'is-invalid': hardwareProcessor.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>Especifique o processador</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Geração do processador:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceProcessorGeneration" required name="processorGeneration" #hardwareProcessorGeneration="ngModel" [ngClass]="{'is-invalid': hardwareProcessorGeneration.invalid}" class="form-control">
+      <div class="campo">
+        <label>Geração do processador:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceProcessorGeneration" required name="processorGeneration" #hardwareProcessorGeneration="ngModel" [ngClass]="{'is-invalid': hardwareProcessorGeneration.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>Especifique a geração do processador</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Ghz do processador:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceProcessorGHZ" required name="processorGhz" #hardwareProcessorGhz="ngModel" [ngClass]="{'is-invalid': hardwareProcessorGhz.invalid}" class="form-control">
+      <div class="campo">
+        <label>Ghz do processador:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceProcessorGHZ" required name="processorGhz" #hardwareProcessorGhz="ngModel" [ngClass]="{'is-invalid': hardwareProcessorGhz.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>Especifique quantos Ghz possui o processador</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Quantidade Memória RAM:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceRAM" required name="ram" #hardwareRAM="ngModel" [ngClass]="{'is-invalid': hardwareRAM.invalid}" class="form-control">
+      <div class="campo">
+        <label>Quantidade Memória RAM:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceRAM" required name="ram" #hardwareRAM="ngModel" [ngClass]="{'is-invalid': hardwareRAM.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>Especifique quanto de memória o equipamento possui</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Quantidade HD/SSD:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceHD" required name="hd" #hardwareHD="ngModel" [ngClass]="{'is-invalid': hardwareHD.invalid}" class="form-control">
+      <div class="campo">
+        <label>Quantidade HD/SSD:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceHD" required name="hd" #hardwareHD="ngModel" [ngClass]="{'is-invalid': hardwareHD.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>Especifique quanto de HD/SSD o equipamento possui</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Condição do equipamento:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceStatusCondition" required name="condition" #hardwareCondition="ngModel" [ngClass]="{'is-invalid': hardwareCondition.invalid}" class="form-control">
+      <div class="campo">
+        <label>Condição do equipamento:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceStatusCondition" required name="condition" #hardwareCondition="ngModel" [ngClass]="{'is-invalid': hardwareCondition.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>Especifique as condições do equipamento: OBSOLETO, MEIO-TERMO, MODERNO</span>
           </div>
         </div>
       </div>
 
-      <div class="campo"> <!-- class="form-group row"-->
-        <label>Previsão para substituição:</label> <!--class="col-sm-2 col-form-label"-->
-        <div> <!--class="col-sm-10"-->
-          <input [(ngModel)]="_hardware.deviceSwapPrediction" required name="swap" #hardwareSwap="ngModel" [ngClass]="{'is-invalid': hardwareSwap.invalid}" class="form-control">
+      <div class="campo">
+        <label>Previsão para substituição:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardware.deviceSwapPrediction" required name="swap" #hardwareSwap="ngModel" [ngClass]="{'is-invalid': hardwareSwap.invalid}" class="form-input">
           <div class="invalid-feedback">
               <span>Especifique uma previsão para substituição do equipamento</span>
           </div>
