@@ -3,6 +3,8 @@ import { Location } from '@angular/common';
 import { HardwareDetail } from '../models/hardware-detail';
 import { HardwareDetailService } from '../services/hardware-detail.service';
 import { ActivatedRoute } from '@angular/router';
+import { DeviceConditions } from '../models/deviceConditions';
+import { IsLicensed } from '../models/licensed';
 
 @Component({
   selector: 'app-hardware-detail',
@@ -12,7 +14,8 @@ import { ActivatedRoute } from '@angular/router';
 export class HardwareDetailComponent implements OnInit {
 
   _hardware: HardwareDetail;
-  value1: string;
+  deviceConditions: DeviceConditions = new DeviceConditions();
+  deviceLicensed: IsLicensed = new IsLicensed();
 
   constructor(private activatedRoute: ActivatedRoute, private hardwareDetailService: HardwareDetailService, private location: Location) { }
 

@@ -15,6 +15,8 @@ import {TableModule} from 'primeng/table';
 import {ToolbarModule} from 'primeng/toolbar';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputMaskModule} from 'primeng/inputmask';
+import {DropdownModule} from 'primeng/dropdown';
+import {SelectButtonModule} from 'primeng/selectbutton';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import {InputMaskModule} from 'primeng/inputmask';
     TableModule,
     ToolbarModule,
     InputTextModule,
-    InputMaskModule
+    InputMaskModule,
+    DropdownModule,
+    SelectButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

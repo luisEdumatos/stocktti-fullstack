@@ -78,30 +78,6 @@
           </div>
 
           <div class="p-field p-col-12 p-md-4">
-            <label>SO Licenciado?</label>
-            <input pInputText [(ngModel)]="_hardware.deviceSOLicensed" required name="soLicensed" #hardwareSoLicensed="ngModel" [ngClass]="{'is-invalid': hardwareSoLicensed.invalid}" class="form-input">
-            <div class="invalid-feedback">
-              <span>O sistema operacional é licenciado? true or false</span>
-            </div>
-          </div>
-
-          <div class="p-field p-col-12 p-md-4">
-            <label>Pacote Office Licenciado?</label>
-            <input pInputText [(ngModel)]="_hardware.deviceOfficeLicensed" required name="officeLicensed" #hardwareOfficeLicensed="ngModel" [ngClass]="{'is-invalid': hardwareOfficeLicensed.invalid}" class="form-input">
-            <div class="invalid-feedback">
-              <span>O pacote office é licenciado? true or false</span>
-            </div>
-          </div>
-
-          <div class="p-field p-col-12 p-md-4">
-            <label>Antivirus Licenciado?</label>
-            <input pInputText [(ngModel)]="_hardware.deviceAntivirusLicensed" required name="antivirusLicensed" #hardwareAntivirusLicensed="ngModel" [ngClass]="{'is-invalid': hardwareAntivirusLicensed.invalid}" class="form-input">
-            <div class="invalid-feedback">
-              <span>O antivirus é licenciado? true or false</span>
-            </div>
-          </div>
-
-          <div class="p-field p-col-12 p-md-4">
             <label>Processador:</label>
             <input pInputText [(ngModel)]="_hardware.deviceProcessor" required name="processor" #hardwareProcessor="ngModel" [ngClass]="{'is-invalid': hardwareProcessor.invalid}" class="form-input">
             <div class="invalid-feedback">
@@ -126,11 +102,29 @@
           </div>
 
           <div class="p-field p-col-12 p-md-4">
+            <label>SO Licenciado?</label>
+            <div class="select">
+              <p-selectButton [options]="deviceLicensed.options" [(ngModel)]="_hardware.deviceSOLicensed" [ngModelOptions]="{standalone: true}" optionLabel="label" optionValue="value"></p-selectButton>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Pacote Office Licenciado?</label>
+            <div class="select">
+              <p-selectButton [options]="deviceLicensed.options" [(ngModel)]="_hardware.deviceOfficeLicensed" [ngModelOptions]="{standalone: true}" optionLabel="label" optionValue="value"></p-selectButton>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Antivirus Licenciado?</label>
+            <div class="select">
+              <p-selectButton [options]="deviceLicensed.options" [(ngModel)]="_hardware.deviceAntivirusLicensed" [ngModelOptions]="{standalone: true}" optionLabel="label" optionValue="value" class="p-selectbutton"></p-selectButton>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
               <label>Condição do equipamento:</label>
-              <input pInputText [(ngModel)]="_hardware.deviceStatusCondition" required name="condition" #hardwareCondition="ngModel" [ngClass]="{'is-invalid': hardwareCondition.invalid}" class="form-input">
-              <div class="invalid-feedback">
-                  <span>Especifique as condições do equipamento: OBSOLETO, MEIO-TERMO, MODERNO</span>
-              </div>
+              <p-dropdown [options]="deviceConditions.options" [(ngModel)]="_hardware.deviceStatusCondition" required [ngModelOptions]="{standalone: true}" optionLabel="option" optionValue="value"></p-dropdown>
           </div>
 
           <div class="p-field p-col-12 p-md-4">
