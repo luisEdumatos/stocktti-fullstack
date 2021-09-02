@@ -12,13 +12,13 @@ export class ClientCreateComponent implements OnInit {
 
   _clientCreate: ClientCreate;
 
-  cadastro: FormGroup;
+  formClient: FormGroup;
 
   constructor(private clientService: ClientService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this._clientCreate = new ClientCreate();
-    this.cadastro = this.fb.group({
+    this.formClient = this.fb.group({
         name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
         address: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
         cnpj: ['', Validators.required]
@@ -26,7 +26,7 @@ export class ClientCreateComponent implements OnInit {
   }
 
   get validation() {
-    return this.cadastro.controls;
+    return this.formClient.controls;
   }
 
   createClient(): void {

@@ -3,7 +3,7 @@
 
   <hr/>
   <div class="formulario">
-    <form [formGroup]="cadastro">
+    <form [formGroup]="formClient">
       <div class="campo">
         <label>Nome:</label>
         <div class="p-field">
@@ -51,7 +51,7 @@
       </div>
 
       <button [routerLink]="['/clients']" pButton pRipple type="button" label="Voltar" class="p-button-outlined p-button-secondary"></button>
-      <button [disabled]="cadastro.invalid" (click)="createClient()" pButton pRipple type="button" label="Salvar" class="p-button-outlined p-button-success"></button>
+      <button [disabled]="formClient.invalid" (click)="createClient()" pButton pRipple type="button" label="Salvar" class="p-button-outlined p-button-success"></button>
     </form>
   </div>
 </div>

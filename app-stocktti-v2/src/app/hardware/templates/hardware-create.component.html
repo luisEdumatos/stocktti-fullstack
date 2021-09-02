@@ -1,1 +1,24 @@
 
+<div class="container">
+  <h2>Informações do Cliente</h2>
+
+  <hr/>
+  <div class="formulario">
+    <form [formGroup]="formHardware">
+      <div class="campo">
+        <label>Localização:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_hardwareCreate.deviceLocalization" placeholder="Localizacao" name="deviceLocalization" formControlName="deviceLocalization" [ngClass]="{'is-invalid': validation.deviceLocalization.touched && validation.deviceLocalization.errors}" class="form-input">
+          <div *ngIf="validation.deviceLocalization.errors" class="invalid-feedback">
+            <div *ngIf="validation.deviceLocalization.errors.required">
+              <span>A localização do equipamento não pode ficar em branco</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button [routerLink]="['/clients/info', _hardwareCreate.client.id]" pButton pRipple type="button" label="Voltar" class="p-button-outlined p-button-secondary"></button>
+      <button [disabled]="formHardware.invalid" (click)="createHardware()" pButton pRipple type="button" label="Salvar" class="p-button-outlined p-button-success"></button>
+    </form>
+  </div>
+</div>
