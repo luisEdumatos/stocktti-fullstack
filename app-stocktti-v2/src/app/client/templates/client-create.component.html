@@ -1,0 +1,57 @@
+<div class="container">
+  <h2>Informações do Cliente</h2>
+
+  <hr/>
+  <div class="formulario">
+    <form [formGroup]="cadastro">
+      <div class="campo">
+        <label>Nome:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_clientCreate.name" placeholder="Nome" name="name" formControlName="name" [ngClass]="{'is-invalid': f.name.touched && f.name.errors}" class="form-input">
+          <div *ngIf="f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">
+              <span>O nome do Cliente não pode ficar em branco</span>
+            </div>
+            <div *ngIf="f.name.errors.minlength">
+              <span>Não é permitido menos de 5 caracteres</span>
+            </div>
+            <div *ngIf="f.name.errors.maxlength">
+              <span>Não é permitido mais de 50 caracteres</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Endereço:</label>
+        <div class="p-field">
+          <input pInputText [(ngModel)]="_clientCreate.address" placeholder="Endereco" name="address" formControlName="address" [ngClass]="{'is-invalid': f.address.touched && f.address.errors}" class="form-input">
+          <div *ngIf="f.address.errors" class="invalid-feedback">
+            <div *ngIf="f.address.errors.required">
+              <span>O endereço não pode ficar em branco</span>
+            </div>
+            <div *ngIf="f.address.errors.minlength">
+              <span>Não é permitido menos de 10 caracteres</span>
+            </div>
+            <div *ngIf="f.address.errors.maxlength">
+              <span>Não é permitido mais de 100 caracteres</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>CNPJ:</label>
+        <div class="p-col-12 p-md-6 p-lg-4">
+          <p-inputMask mask="99.999.999/0009-99" [(ngModel)]="_clientCreate.cnpj" placeholder="a*-999-a999" formControlName="cnpj" [ngClass]="{'is-invalid': f.cnpj.touched && f.cnpj.errors}" class="form-input"></p-inputMask>
+          <div class="invalid-feedback">
+            <span>O CNPJ não pode ficar em branco ou possuir menos caracteres que o necessário</span>
+          </div>
+        </div>
+      </div>
+
+      <button [routerLink]="['/clients']" pButton pRipple type="button" label="Voltar" class="p-button-outlined p-button-secondary"></button>
+      <button [disabled]="cadastro.invalid" (click)="createClient()" pButton pRipple type="button" label="Salvar" class="p-button-outlined p-button-success"></button>
+    </form>
+  </div>
+</div>
