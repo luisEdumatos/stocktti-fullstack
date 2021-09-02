@@ -1,3 +1,4 @@
+import { HardwareCreate } from './../models/hardware-create';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
@@ -12,5 +13,9 @@ export class HardwareService {
 
   deleteById(id: number): Observable<any> {
     return this.httpClient.delete<any>(`${this.hardwareUrl}/${id}`);
+  }
+
+  createHardware(hardware: HardwareCreate): Observable<HardwareCreate> {
+    return this.httpClient.post<HardwareCreate>(`${this.hardwareUrl}`, hardware);
   }
 }
