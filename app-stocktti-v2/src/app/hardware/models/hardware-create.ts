@@ -17,6 +17,6 @@ export class HardwareCreate {
   deviceProcessorGHZ: string;
   deviceRAM: string;
   deviceHD: string;
-  deviceStatusCondition: string;
+  deviceStatusCondition: string = "MODERNO";
   deviceSwapPrediction: string;
 }

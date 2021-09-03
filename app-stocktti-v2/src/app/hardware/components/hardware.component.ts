@@ -32,10 +32,6 @@ export class HardwareComponent implements OnInit {
     })
   }
 
-  openNew(): void {
-
-  }
-
   set filter(value: string) {
     this._filterBy = value;
 
