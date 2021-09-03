@@ -7,9 +7,9 @@ export class HardwareDetail {
   deviceBrand: string;
   deviceModel: string;
   deviceSO: string;
-  deviceSOLicensed: string;
-  deviceOfficeLicensed: string;
-  deviceAntivirusLicensed: string;
+  deviceSOLicensed: boolean;
+  deviceOfficeLicensed: boolean;
+  deviceAntivirusLicensed: boolean;
   deviceProcessor: string;
   deviceProcessorGeneration: string;
   deviceProcessorGHZ: string;

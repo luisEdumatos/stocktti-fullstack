@@ -9,9 +9,9 @@ export class HardwareCreate {
   deviceBrand: string;
   deviceModel: string;
   deviceSO: string;
-  deviceSOLicensed: string;
-  deviceOfficeLicensed: string;
-  deviceAntivirusLicensed: string;
+  deviceSOLicensed: boolean = false;
+  deviceOfficeLicensed: boolean = false;
+  deviceAntivirusLicensed: boolean = false;
   deviceProcessor: string;
   deviceProcessorGeneration: string;
   deviceProcessorGHZ: string;

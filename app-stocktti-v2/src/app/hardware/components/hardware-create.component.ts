@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { HardwareCreate } from '../models/hardware-create';
 import { HardwareService } from '../services/hardware.service';
+import { DeviceConditions } from 'src/app/hardware-detail/models/deviceConditions';
+import { IsLicensed } from 'src/app/hardware-detail/models/licensed';
 
 @Component({
   selector: 'app-hardware-create',
@@ -14,6 +16,8 @@ import { HardwareService } from '../services/hardware.service';
 export class HardwareCreateComponent implements OnInit {
 
   _hardwareCreate: HardwareCreate;
+  deviceConditions: DeviceConditions = new DeviceConditions();
+  deviceLicensed: IsLicensed = new IsLicensed();
 
   formHardware: FormGroup;
 
@@ -27,6 +31,7 @@ export class HardwareCreateComponent implements OnInit {
       deviceLocalization: ['', Validators.required],
       deviceOwnerUserName: ['', Validators.required],
       deviceTag: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
+      deviceType: ['', Validators.required],
       deviceBrand: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
       deviceModel: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       deviceSO: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(40)]],

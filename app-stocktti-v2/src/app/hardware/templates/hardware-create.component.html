@@ -1,22 +1,229 @@
-
 <div class="container">
-  <h2>Informações do Cliente</h2>
+  <h2>Informações do equipamento</h2>
 
   <hr/>
   <div class="formulario">
     <form [formGroup]="formHardware">
-      <div class="campo">
-        <label>Localização:</label>
-        <div class="p-field">
-          <input pInputText [(ngModel)]="_hardwareCreate.deviceLocalization" placeholder="Localizacao" name="deviceLocalization" formControlName="deviceLocalization" [ngClass]="{'is-invalid': validation.deviceLocalization.touched && validation.deviceLocalization.errors}" class="form-input">
-          <div *ngIf="validation.deviceLocalization.errors" class="invalid-feedback">
-            <div *ngIf="validation.deviceLocalization.errors.required">
-              <span>A localização do equipamento não pode ficar em branco</span>
+      <div class="card">
+        <div class="p-fluid p-grid">
+          <div class="p-field p-col-12 p-md-4">
+            <label>Localização:</label>
+            <input pInputText [(ngModel)]="_hardwareCreate.deviceLocalization" name="deviceLocalization" formControlName="deviceLocalization" [ngClass]="{'is-invalid': validation.deviceLocalization.touched && validation.deviceLocalization.errors}" class="form-input">
+            <div *ngIf="validation.deviceLocalization.errors" class="invalid-feedback">
+              <div *ngIf="validation.deviceLocalization.errors.required">
+                <span>A localização do equipamento não pode ficar em branco</span>
+              </div>
             </div>
           </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Usuário:</label>
+            <input pInputText [(ngModel)]="_hardwareCreate.deviceOwnerUserName" name="deviceOwnerUserName" formControlName="deviceOwnerUserName" [ngClass]="{'is-invalid': validation.deviceOwnerUserName.touched && validation.deviceOwnerUserName.errors}" class="form-input">
+            <div *ngIf="validation.deviceOwnerUserName.errors" class="invalid-feedback">
+              <div *ngIf="validation.deviceOwnerUserName.errors.required">
+                <span>Se não tiver usuário, digite "Reserva" para melhor organização</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Etiqueta:</label>
+            <input pInputText [(ngModel)]="_hardwareCreate.deviceTag" name="deviceTag" formControlName="deviceTag" [ngClass]="{'is-invalid': validation.deviceTag.touched && validation.deviceTag.errors}" class="form-input">
+            <div *ngIf="validation.deviceTag.errors" class="invalid-feedback">
+              <div *ngIf="validation.deviceTag.errors.required">
+                <span>Especifique uma etiqueta</span>
+              </div>
+              <div *ngIf="validation.deviceTag.errors.minlength">
+                <span>Não é permitido menos de 5 caracteres</span>
+              </div>
+              <div *ngIf="validation.deviceTag.errors.maxlength">
+                <span>Não é permitido mais de 15 caracteres</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Tipo:</label>
+            <input pInputText [(ngModel)]="_hardwareCreate.deviceType" name="deviceType" formControlName="deviceType" [ngClass]="{'is-invalid': validation.deviceType.touched && validation.deviceType.errors}" class="form-input">
+            <div *ngIf="validation.deviceType.errors" class="invalid-feedback">
+              <div *ngIf="validation.deviceType.errors.required">
+                <span>Especifique um tipo DESKTOP ou NOTEBOOK</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Marca:</label>
+            <input pInputText [(ngModel)]="_hardwareCreate.deviceBrand" name="deviceBrand" formControlName="deviceBrand" [ngClass]="{'is-invalid': validation.deviceBrand.touched && validation.deviceBrand.errors}" class="form-input">
+            <div *ngIf="validation.deviceBrand.errors" class="invalid-feedback">
+              <div *ngIf="validation.deviceBrand.errors.required">
+                <span>Especifique uma marca</span>
+              </div>
+              <div *ngIf="validation.deviceBrand.errors.minlength">
+                <span>Não é permitido menos de 2 caracteres</span>
+              </div>
+              <div *ngIf="validation.deviceBrand.errors.maxlength">
+                <span>Não é permitido mais de 10 caracteres</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Modelo:</label>
+            <input pInputText [(ngModel)]="_hardwareCreate.deviceModel" name="deviceModel" formControlName="deviceModel" [ngClass]="{'is-invalid': validation.deviceModel.touched && validation.deviceModel.errors}" class="form-input">
+            <div *ngIf="validation.deviceModel.errors" class="invalid-feedback">
+              <div *ngIf="validation.deviceModel.errors.required">
+                <span>Especifique um modelo</span>
+              </div>
+              <div *ngIf="validation.deviceModel.errors.minlength">
+                <span>Não é permitido menos de 2 caracteres</span>
+              </div>
+              <div *ngIf="validation.deviceModel.errors.maxlength">
+                <span>Não é permitido mais de 20 caracteres</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Sistema Operacional:</label>
+            <input pInputText [(ngModel)]="_hardwareCreate.deviceSO" name="deviceSO" formControlName="deviceSO" [ngClass]="{'is-invalid': validation.deviceSO.touched && validation.deviceSO.errors}" class="form-input">
+            <div *ngIf="validation.deviceSO.errors" class="invalid-feedback">
+              <div *ngIf="validation.deviceSO.errors.required">
+                <span>Especifique um sitema operacional</span>
+              </div>
+              <div *ngIf="validation.deviceSO.errors.minlength">
+                <span>Não é permitido menos de 5 caracteres</span>
+              </div>
+              <div *ngIf="validation.deviceSO.errors.maxlength">
+                <span>Não é permitido mais de 40 caracteres</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Quantidade Memória RAM:</label>
+            <input pInputText [(ngModel)]="_hardwareCreate.deviceRAM" name="deviceRAM" formControlName="deviceRAM" [ngClass]="{'is-invalid': validation.deviceRAM.touched && validation.deviceRAM.errors}" class="form-input">
+            <div *ngIf="validation.deviceRAM.errors" class="invalid-feedback">
+              <div *ngIf="validation.deviceRAM.errors.required">
+                <span>Especifique quanto de memória o equipamento possui</span>
+              </div>
+              <div *ngIf="validation.deviceRAM.errors.minlength">
+                <span>Não é permitido menos de 3 caracteres</span>
+              </div>
+              <div *ngIf="validation.deviceRAM.errors.maxlength">
+                <span>Não é permitido mais de 5 caracteres</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Quantidade HD/SSD:</label>
+            <input pInputText [(ngModel)]="_hardwareCreate.deviceHD" name="deviceHD" formControlName="deviceHD" [ngClass]="{'is-invalid': validation.deviceHD.touched && validation.deviceHD.errors}" class="form-input">
+            <div *ngIf="validation.deviceHD.errors" class="invalid-feedback">
+              <div *ngIf="validation.deviceHD.errors.required">
+                <span>Especifique quanto de HD/SSD o equipamento possui</span>
+              </div>
+              <div *ngIf="validation.deviceHD.errors.minlength">
+                <span>Não é permitido menos de 4 caracteres</span>
+              </div>
+              <div *ngIf="validation.deviceHD.errors.maxlength">
+                <span>Não é permitido mais de 10 caracteres</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Processador:</label>
+            <input pInputText [(ngModel)]="_hardwareCreate.deviceProcessor" name="deviceProcessor" formControlName="deviceProcessor" [ngClass]="{'is-invalid': validation.deviceProcessor.touched && validation.deviceProcessor.errors}" class="form-input">
+            <div *ngIf="validation.deviceProcessor.errors" class="invalid-feedback">
+              <div *ngIf="validation.deviceProcessor.errors.required">
+                <span>Especifique o processador</span>
+              </div>
+              <div *ngIf="validation.deviceProcessor.errors.minlength">
+                <span>Não é permitido menos de 2 caracteres</span>
+              </div>
+              <div *ngIf="validation.deviceProcessor.errors.maxlength">
+                <span>Não é permitido mais de 15 caracteres</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Geração do processador:</label>
+            <input pInputText [(ngModel)]="_hardwareCreate.deviceProcessorGeneration" name="deviceProcessorGeneration" formControlName="deviceProcessorGeneration" [ngClass]="{'is-invalid': validation.deviceProcessorGeneration.touched && validation.deviceProcessorGeneration.errors}" class="form-input">
+            <div *ngIf="validation.deviceProcessorGeneration.errors" class="invalid-feedback">
+              <div *ngIf="validation.deviceProcessorGeneration.errors.required">
+                <span>Especifique a geração do processador</span>
+              </div>
+              <div *ngIf="validation.deviceProcessorGeneration.errors.minlength">
+                <span>Não é permitido menos de 2 caracteres</span>
+              </div>
+              <div *ngIf="validation.deviceProcessorGeneration.errors.maxlength">
+                <span>Não é permitido mais de 10 caracteres</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Ghz do processador:</label>
+            <input pInputText [(ngModel)]="_hardwareCreate.deviceProcessorGHZ" name="deviceProcessorGHZ" formControlName="deviceProcessorGHZ" [ngClass]="{'is-invalid': validation.deviceProcessorGHZ.touched && validation.deviceProcessorGHZ.errors}" class="form-input">
+            <div *ngIf="validation.deviceProcessorGHZ.errors" class="invalid-feedback">
+              <div *ngIf="validation.deviceProcessorGHZ.errors.required">
+                <span>Especifique quantos Ghz possui o processador</span>
+              </div>
+              <div *ngIf="validation.deviceProcessorGHZ.errors.minlength">
+                <span>Não é permitido menos de 4 caracteres</span>
+              </div>
+              <div *ngIf="validation.deviceProcessorGHZ.errors.maxlength">
+                <span>Não é permitido mais de 10 caracteres</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>SO Licenciado?</label>
+            <div class="select">
+              <p-selectButton [options]="deviceLicensed.options" [(ngModel)]="_hardwareCreate.deviceSOLicensed" [ngModelOptions]="{standalone: true}" optionLabel="label" optionValue="value"></p-selectButton>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Pacote Office Licenciado?</label>
+            <div class="select">
+              <p-selectButton [options]="deviceLicensed.options" [(ngModel)]="_hardwareCreate.deviceOfficeLicensed" [ngModelOptions]="{standalone: true}" optionLabel="label" optionValue="value"></p-selectButton>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Antivirus Licenciado?</label>
+            <div class="select">
+              <p-selectButton [options]="deviceLicensed.options" [(ngModel)]="_hardwareCreate.deviceAntivirusLicensed" [ngModelOptions]="{standalone: true}" optionLabel="label" optionValue="value" class="p-selectbutton"></p-selectButton>
+            </div>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+              <label>Condição do equipamento:</label>
+              <p-dropdown [options]="deviceConditions.options" [(ngModel)]="_hardwareCreate.deviceStatusCondition" required [ngModelOptions]="{standalone: true}" optionLabel="option" optionValue="value"></p-dropdown>
+          </div>
+
+          <div class="p-field p-col-12 p-md-4">
+            <label>Previsão para substituição:</label>
+            <input pInputText [(ngModel)]="_hardwareCreate.deviceSwapPrediction" name="deviceSwapPrediction" formControlName="deviceSwapPrediction" [ngClass]="{'is-invalid': validation.deviceSwapPrediction.touched && validation.deviceSwapPrediction.errors}" class="form-input">
+            <div *ngIf="validation.deviceSwapPrediction.errors" class="invalid-feedback">
+              <div *ngIf="validation.deviceSwapPrediction.errors.required">
+                <span>Especifique uma previsão para substituição do equipamento</span>
+              </div>
+              <div *ngIf="validation.deviceSwapPrediction.errors.minlength">
+                <span>Não é permitido menos de 4 caracteres</span>
+              </div>
+              <div *ngIf="validation.deviceSwapPrediction.errors.maxlength">
+                <span>Não é permitido mais de 10 caracteres</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-
       <button [routerLink]="['/clients/info', _hardwareCreate.client.id]" pButton pRipple type="button" label="Voltar" class="p-button-outlined p-button-secondary"></button>
       <button [disabled]="formHardware.invalid" (click)="createHardware()" pButton pRipple type="button" label="Salvar" class="p-button-outlined p-button-success"></button>
     </form>
