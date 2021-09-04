@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ClientCreate } from '../models/client-create';
 import { ClientService } from '../services/client.service';
 
@@ -15,7 +15,7 @@ export class ClientCreateComponent implements OnInit {
 
   formClient: FormGroup;
 
-  constructor(private clientService: ClientService, private fb: FormBuilder, private router: Router) { }
+  constructor(private clientService: ClientService, private fb: FormBuilder, private location: Location) { }
 
   ngOnInit(): void {
     this._clientCreate = new ClientCreate();
@@ -38,7 +38,7 @@ export class ClientCreateComponent implements OnInit {
       },
       error: err => console.log('Error', err)
     });
-    this.router.navigate(['/clients']);
+    this.location.back();
   }
 
 }

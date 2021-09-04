@@ -27,9 +27,13 @@ export class ClientDetailComponent implements OnInit {
 
   update(): void {
     this.clientDetailService.update(this._client).subscribe({
-      next: client => console.log(`Client with id ${this._client.id} saved with success`),
+      next(client) {
+        console.log('Client saved with success');
+        alert('Cliente atualizado com sucesso!');
+      },
       error: err => console.log(`Error`, err)
     });
+
   }
 
 }

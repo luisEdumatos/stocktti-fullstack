@@ -1,4 +1,5 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 import { HardwareClient } from './../models/hardwareClient';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -21,7 +22,7 @@ export class HardwareCreateComponent implements OnInit {
 
   formHardware: FormGroup;
 
-  constructor(private activatedRoute: ActivatedRoute, private hardwareService: HardwareService, private fb: FormBuilder) { }
+  constructor(private activatedRoute: ActivatedRoute, private hardwareService: HardwareService, private fb: FormBuilder, private location: Location) { }
 
   ngOnInit(): void {
     this._hardwareCreate = new HardwareCreate();
@@ -50,9 +51,13 @@ export class HardwareCreateComponent implements OnInit {
 
   createHardware(): void {
     this.hardwareService.createHardware(this._hardwareCreate).subscribe({
-      next: hardware => console.log('Hardware create with sucess', hardware),
+      next(hardware) {
+        console.log('Hardware create with sucess', hardware);
+        alert('Novo Hardware adicionado com sucesso!');
+      },
       error: err => console.log('Error', err)
     });
+    this.location.back();
   }
 
 }
