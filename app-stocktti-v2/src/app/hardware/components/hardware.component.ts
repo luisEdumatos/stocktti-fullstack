@@ -22,14 +22,17 @@ export class HardwareComponent implements OnInit {
   }
 
   deleteById(hardware_id: number): void {
-    this.hardwares = this.hardwares.filter(h => h.id !== hardware_id);
-    this.filteredHardwares = this.filteredHardwares.filter(h => h.id !== hardware_id);
-    this.hardwareService.deleteById(hardware_id).subscribe({
-      next: () => {
-        console.log(`Hardware with id ${hardware_id} deleted with sucess. `);
-      },
-      error: err => console.log('Error', err)
-    })
+    const confirma = confirm(`Tem certeza que deseja excluir este equipamento?`);
+    if (confirma) {
+      this.hardwares = this.hardwares.filter(h => h.id !== hardware_id);
+      this.filteredHardwares = this.filteredHardwares.filter(h => h.id !== hardware_id);
+      this.hardwareService.deleteById(hardware_id).subscribe({
+        next: () => {
+          console.log(`Hardware with id ${hardware_id} deleted with sucess. `);
+        },
+        error: err => console.log('Error', err)
+      })
+    }
   }
 
   set filter(value: string) {
