@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClientDetail } from '../models/client-detail';
 import { ClientService } from '../services/client.service';
-import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-client-detail',
@@ -12,10 +13,21 @@ export class ClientDetailComponent implements OnInit {
 
   _client: ClientDetail;
 
-  constructor(private activatedRoute: ActivatedRoute, private clientService: ClientService) { }
+  formClient: FormGroup;
+
+  constructor(private activatedRoute: ActivatedRoute, private clientService: ClientService, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.getClientById();
+    this.formClient = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
+      address: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
+      cnpj: ['', Validators.required]
+    });
+  }
+
+  get validation() {
+    return this.formClient.controls;
   }
 
   getClientById(): void {

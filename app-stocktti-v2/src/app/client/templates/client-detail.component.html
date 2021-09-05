@@ -3,13 +3,21 @@
 
   <hr/>
   <div class="formulario">
-    <form #clientForm="ngForm" *ngIf="_client">
+    <form [formGroup]="formClient" *ngIf="_client">
       <div class="campo">
         <label>Nome:</label>
         <div class="p-field">
-          <input pInputText [(ngModel)]="_client.name" required name="name" #clientName="ngModel" [ngClass]="{'is-invalid': clientName.invalid}" class="form-input">
-          <div class="invalid-feedback">
-            <span>O nome do Cliente não pode ficar em branco</span>
+          <input pInputText [(ngModel)]="_client.name" placeholder="Nome" name="name" formControlName="name" [ngClass]="{'is-invalid': validation.name.touched && validation.name.errors}" class="form-input">
+          <div *ngIf="validation.name.errors" class="invalid-feedback">
+            <div *ngIf="validation.name.errors.required">
+              <span>O nome do Cliente não pode ficar em branco</span>
+            </div>
+            <div *ngIf="validation.name.errors.minlength">
+              <span>Não é permitido menos de 5 caracteres</span>
+            </div>
+            <div *ngIf="validation.name.errors.maxlength">
+              <span>Não é permitido mais de 50 caracteres</span>
+            </div>
           </div>
         </div>
       </div>
@@ -17,9 +25,17 @@
       <div class="campo">
         <label>Endereço:</label>
         <div class="p-field">
-          <input pInputText [(ngModel)]="_client.address" required name="address" #clientAddress="ngModel" [ngClass]="{'is-invalid': clientAddress.invalid}" class="form-input">
-          <div class="invalid-feedback">
-            <span>O endereço não pode ficar em branco</span>
+          <input pInputText [(ngModel)]="_client.address" placeholder="Endereco" name="address" formControlName="address" [ngClass]="{'is-invalid': validation.address.touched && validation.address.errors}" class="form-input">
+          <div *ngIf="validation.address.errors" class="invalid-feedback">
+            <div *ngIf="validation.address.errors.required">
+              <span>O endereço não pode ficar em branco</span>
+            </div>
+            <div *ngIf="validation.address.errors.minlength">
+              <span>Não é permitido menos de 10 caracteres</span>
+            </div>
+            <div *ngIf="validation.address.errors.maxlength">
+              <span>Não é permitido mais de 100 caracteres</span>
+            </div>
           </div>
         </div>
       </div>
@@ -27,16 +43,17 @@
       <div class="campo">
         <label>CNPJ:</label>
         <div class="p-col-12 p-md-6 p-lg-4">
-          <p-inputMask mask="99.999.999/0009-99" [(ngModel)]="_client.cnpj" required name="cnpj" #clientCnpj="ngModel" [ngClass]="{'is-invalid': clientCnpj.invalid}" placeholder="a*-999-a999" class="form-input"></p-inputMask>
+          <p-inputMask mask="99.999.999/0009-99" [(ngModel)]="_client.cnpj" placeholder="a*-999-a999" formControlName="cnpj" [ngClass]="{'is-invalid': validation.cnpj.touched && validation.cnpj.errors}" class="form-input"></p-inputMask>
           <div class="invalid-feedback">
-            <span>O CNPJ não pode ficar em branco</span>
+            <span>O CNPJ não pode ficar em branco ou possuir menos caracteres que o necessário</span>
           </div>
         </div>
       </div>
 
       <button [routerLink]="['/clients']" pButton pRipple type="button" label="Voltar" class="p-button-outlined p-button-secondary"></button>
-      <button [disabled]="clientForm.invalid" (click)="update()" pButton pRipple type="button" label="Salvar" class="p-button-outlined p-button-success"></button>
+      <button [disabled]="formClient.invalid" (click)="update()" pButton pRipple type="button" label="Salvar" class="p-button-outlined p-button-success"></button>
     </form>
   </div>
 </div>
 <app-hardware [hardwares]="_client.equipment" [client_id]="_client.id" *ngIf="_client"></app-hardware>
+
