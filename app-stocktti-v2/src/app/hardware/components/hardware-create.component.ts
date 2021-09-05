@@ -1,6 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
-import { HardwareClient } from '../models/hardwareClient';
+import { HardwareClient } from '../models-enums/hardwareClient';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { HardwareCreate } from '../models/hardware-create';

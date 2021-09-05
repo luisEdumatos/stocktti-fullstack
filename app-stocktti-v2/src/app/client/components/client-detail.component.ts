@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientDetail } from '../models/client-detail';
-import { ClientDetailService } from '../services/client-detail.service';
+import { ClientService } from '../services/client.service';
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -12,21 +12,21 @@ export class ClientDetailComponent implements OnInit {
 
   _client: ClientDetail;
 
-  constructor(private activatedRoute: ActivatedRoute, private clientDetailService: ClientDetailService) { }
+  constructor(private activatedRoute: ActivatedRoute, private clientService: ClientService) { }
 
   ngOnInit() {
     this.getClientById();
   }
 
   getClientById(): void {
-    this.clientDetailService.findById(+this.activatedRoute.snapshot.paramMap.get('id')).subscribe({
+    this.clientService.findById(+this.activatedRoute.snapshot.paramMap.get('id')).subscribe({
       next: client => this._client = client,
       error: err => console.log('Error', err)
     });
   }
 
   update(): void {
-    this.clientDetailService.update(this._client).subscribe({
+    this.clientService.update(this._client).subscribe({
       next(client) {
         console.log('Client saved with success');
         alert('Cliente atualizado com sucesso!');

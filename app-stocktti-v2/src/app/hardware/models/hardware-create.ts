@@ -1,4 +1,4 @@
-import { HardwareClient } from "./hardwareClient";
+import { HardwareClient } from "../models-enums/hardwareClient";
 
 export class HardwareCreate {
   client: HardwareClient;
