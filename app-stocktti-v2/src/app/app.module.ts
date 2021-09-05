@@ -16,9 +16,9 @@ import {SelectButtonModule} from 'primeng/selectbutton';
 
 import { ClientComponent } from './client/components/client.component';
 import { HardwareComponent } from './hardware/components/hardware.component';
-import { ClientDetailComponent } from './client-detail/components/client-detail.component';
+import { ClientDetailComponent } from './client/components/client-detail.component';
 import { ClientCreateComponent } from './client/components/client-create.component';
-import { HardwareDetailComponent } from './hardware-detail/components/hardware-detail.component';
+import { HardwareDetailComponent } from './hardware/components/hardware-detail.component';
 import { HardwareCreateComponent } from './hardware/components/hardware-create.component';
 import { HeaderComponent } from './header/components/header.component';
 

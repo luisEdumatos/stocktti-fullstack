@@ -3,8 +3,8 @@ import { Location } from '@angular/common';
 import { HardwareDetail } from '../models/hardware-detail';
 import { HardwareDetailService } from '../services/hardware-detail.service';
 import { ActivatedRoute } from '@angular/router';
-import { DeviceConditions } from '../models/deviceConditions';
-import { IsLicensed } from '../models/licensed';
+import { DeviceConditions } from '../models-enums/deviceConditions';
+import { IsLicensed } from '../models-enums/licensed';
 
 @Component({
   selector: 'app-hardware-detail',

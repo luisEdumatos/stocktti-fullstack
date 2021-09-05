@@ -1,6 +1,6 @@
 import { HardwareCreateComponent } from './hardware/components/hardware-create.component';
-import { HardwareDetailComponent } from './hardware-detail/components/hardware-detail.component';
-import { ClientDetailComponent } from './client-detail/components/client-detail.component';
+import { HardwareDetailComponent } from './hardware/components/hardware-detail.component';
+import { ClientDetailComponent } from './client/components/client-detail.component';
 import { ClientComponent } from './client/components/client.component';
 import { ClientCreateComponent } from './client/components/client-create.component';
 import { NgModule} from '@angular/core';

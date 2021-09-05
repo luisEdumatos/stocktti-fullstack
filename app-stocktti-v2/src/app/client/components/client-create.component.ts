@@ -32,12 +32,10 @@ export class ClientCreateComponent implements OnInit {
 
   createClient(): void {
     this.clientService.createClient(this._clientCreate).subscribe({
-      next(client) {
-        console.log('Client create with sucess', client);
-        alert('Novo Cliente adicionado com sucesso!');
-      },
+      next: client => console.log('Client create with sucess', client),
       error: err => console.log('Error', err)
     });
+    alert('Novo Cliente adicionado com sucesso!');
     this.location.back();
   }
 

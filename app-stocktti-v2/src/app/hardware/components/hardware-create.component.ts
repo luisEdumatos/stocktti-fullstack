@@ -1,12 +1,12 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
-import { HardwareClient } from './../models/hardwareClient';
+import { HardwareClient } from '../models/hardwareClient';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { HardwareCreate } from '../models/hardware-create';
 import { HardwareService } from '../services/hardware.service';
-import { DeviceConditions } from 'src/app/hardware-detail/models/deviceConditions';
-import { IsLicensed } from 'src/app/hardware-detail/models/licensed';
+import { DeviceConditions } from '../models-enums/deviceConditions';
+import { IsLicensed } from '../models-enums/licensed';
 
 @Component({
   selector: 'app-hardware-create',
@@ -51,12 +51,10 @@ export class HardwareCreateComponent implements OnInit {
 
   createHardware(): void {
     this.hardwareService.createHardware(this._hardwareCreate).subscribe({
-      next(hardware) {
-        console.log('Hardware create with sucess', hardware);
-        alert('Novo Hardware adicionado com sucesso!');
-      },
+      next: hardware => console.log('Hardware create with sucess', hardware),
       error: err => console.log('Error', err)
     });
+    alert('Novo Hardware adicionado com sucesso!');
     this.location.back();
   }
 
