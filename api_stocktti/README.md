@@ -12,7 +12,7 @@ O objetivo é fornecer este sistema para a empresa, o que proporcionará maior o
 
 A API construida permite a criação de dois tipos de entidades, a Client e a Hardware conforme imagem abaixo:
 
-![image](https://user-images.githubusercontent.com/32941370/126188474-3628b241-68b3-47aa-9ef5-8b1da692bbda.png)
+![image](https://userSystem-images.githubusercontent.com/32941370/126188474-3628b241-68b3-47aa-9ef5-8b1da692bbda.png)
 
 Conforme apresentado na imagem, a API permite a criação de Clientes e Hardwares no modelo um para muitos, ou seja, um Cliente pode ter nenhum ou vários Hardwares associados a ele, e um Hardware para existir precisa estar associado a um cliente. 
 

@@ -21,6 +21,10 @@ import { ClientCreateComponent } from './client/components/client-create.compone
 import { HardwareDetailComponent } from './hardware/components/hardware-detail.component';
 import { HardwareCreateComponent } from './hardware/components/hardware-create.component';
 import { HeaderComponent } from './header/components/header.component';
+import { LoginComponent } from './account/login/login.component';
+import { CreateAccountComponent } from './account/create-account/create-account.component';
+import { HomeComponent } from './layout/home/home.component';
+import { AuthenticationComponent } from './layout/authentication/authentication.component';
 
 
 @NgModule({
@@ -32,7 +36,11 @@ import { HeaderComponent } from './header/components/header.component';
     HardwareDetailComponent,
     HeaderComponent,
     ClientCreateComponent,
-    HardwareCreateComponent
+    HardwareCreateComponent,
+    LoginComponent,
+    CreateAccountComponent,
+    HomeComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
