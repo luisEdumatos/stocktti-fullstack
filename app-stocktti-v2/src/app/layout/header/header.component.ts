@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { TokenStorageService } from 'src/app/security/_services/token-storage.service';
 
 @Component({
   selector: 'app-header',
-  templateUrl: '../templates/header.component.html',
-  styleUrls: ['../styles/header.component.css']
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent  {
 

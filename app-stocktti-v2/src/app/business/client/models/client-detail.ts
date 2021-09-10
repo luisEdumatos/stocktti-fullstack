@@ -1,4 +1,4 @@
-import { Hardware } from "src/app/hardware/models/hardware";
+import { Hardware } from "../../hardware/models/hardware";
 
 export class ClientDetail {
   id: number;

@@ -1,14 +1,14 @@
 <div class="container">
-  <h2>Sign In / Sign Up</h2>
+  <h2>Bem-vindo ao StockTTi!</h2>
 
   <div class="formulario">
     <form [formGroup]="formLogin">
       <div class="campo">
         <div class="p-field">
-          <input type="text" placeholder="Username" pInputText [(ngModel)]="form.username" name="username" formControlName="username" [ngClass]="{'is-invalid': validation.username.touched && validation.username.errors}" class="form-input">
+          <input type="text" placeholder="Usuario" pInputText [(ngModel)]="form.username" name="username" formControlName="username" [ngClass]="{'is-invalid': validation.username.touched && validation.username.errors}" class="form-input">
           <div *ngIf="validation.username.errors" class="invalid-feedback">
             <div *ngIf="validation.username.errors.required">
-              <span>O login não pode ficar em branco</span>
+              <span>O usuário não pode ficar em branco</span>
             </div>
             <div *ngIf="validation.username.errors.minlength">
               <span>Não é permitido menos de 5 caracteres</span>
@@ -22,7 +22,7 @@
 
       <div class="campo">
         <div class="p-field">
-          <input type="password" placeholder="Password" pInputText [(ngModel)]="form.password" name="password" formControlName="password" [ngClass]="{'is-invalid': validation.password.touched && validation.password.errors}" class="form-input">
+          <input type="password" placeholder="Senha" pInputText [(ngModel)]="form.password" name="password" formControlName="password" [ngClass]="{'is-invalid': validation.password.touched && validation.password.errors}" class="form-input">
           <div *ngIf="validation.password.errors" class="invalid-feedback">
             <div *ngIf="validation.password.errors.required">
               <span>A senha não pode ficar em branco</span>
@@ -37,8 +37,8 @@
         </div>
       </div>
 
-      <p-button label="Sign In" icon="pi pi-user" [disabled]="formLogin.invalid" (click)="onSubmit()" type="button" class="p-button-outlined"></p-button>
-      <button pButton pRipple icon="pi pi-user-plus" type="button" label="Register" class="p-button-outlined"></button>
+      <p-button label="Acessar" icon="pi pi-user" [disabled]="formLogin.invalid" (click)="onSubmit()" type="button" class="p-button-outlined"></p-button>
+      <button [routerLink]="['/register']" pButton pRipple icon="pi pi-user-plus" type="button" label="Criar Conta" class="p-button-outlined"></button>
     </form>
   </div>
 </div>
