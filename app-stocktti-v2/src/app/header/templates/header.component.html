@@ -1,3 +1,10 @@
-<nav class="my-nav"> <!--navbar navbar-expand-lg navbar-dark bg-dark-->
-  <a [routerLink]="['/clients']" class="my-link">StockTTi System</a> <!--navbar-brand-->
+<nav class="my-nav">
+  <div class="flex">
+    <div class="link">
+      <a [routerLink]="['/clients']" class="my-link">StockTTi System</a>
+    </div>
+    <div class="logout">
+      <a href="" (click)="logout()" class="my-logout">Logout</a>
+    </div>
+  </div>
 </nav>
