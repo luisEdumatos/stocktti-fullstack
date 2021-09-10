@@ -44,12 +44,7 @@
 
           <div class="p-field p-col-12 p-md-4">
             <label>Tipo:</label>
-            <input pInputText [(ngModel)]="_hardware.deviceType" name="deviceType" formControlName="deviceType" [ngClass]="{'is-invalid': validation.deviceType.touched && validation.deviceType.errors}" class="form-input">
-            <div *ngIf="validation.deviceType.errors" class="invalid-feedback">
-              <div *ngIf="validation.deviceType.errors.required">
-                <span>Especifique um tipo DESKTOP ou NOTEBOOK</span>
-              </div>
-            </div>
+            <p-dropdown [options]="deviceType.options" [(ngModel)]="_hardware.deviceType" required [ngModelOptions]="{standalone: true}" optionLabel="option" optionValue="value"></p-dropdown>
           </div>
 
           <div class="p-field p-col-12 p-md-4">

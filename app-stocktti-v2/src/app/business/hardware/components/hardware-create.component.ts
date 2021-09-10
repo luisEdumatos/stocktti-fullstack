@@ -7,6 +7,7 @@ import { HardwareCreate } from '../models/hardware-create';
 import { HardwareService } from '../services/hardware.service';
 import { DeviceConditions } from '../models-enums/deviceConditions';
 import { IsLicensed } from '../models-enums/licensed';
+import { DeviceTypes } from '../models-enums/deviceType';
 
 @Component({
   selector: 'app-hardware-create',
@@ -19,6 +20,7 @@ export class HardwareCreateComponent implements OnInit {
   _hardwareCreate: HardwareCreate;
   deviceConditions: DeviceConditions = new DeviceConditions();
   deviceLicensed: IsLicensed = new IsLicensed();
+  deviceType: DeviceTypes = new DeviceTypes();
 
   formHardware: FormGroup;
 
@@ -32,7 +34,6 @@ export class HardwareCreateComponent implements OnInit {
       deviceLocalization: ['', Validators.required],
       deviceOwnerUserName: ['', Validators.required],
       deviceTag: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
-      deviceType: ['', Validators.required],
       deviceBrand: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
       deviceModel: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       deviceSO: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(40)]],

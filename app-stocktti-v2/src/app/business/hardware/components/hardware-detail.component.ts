@@ -6,6 +6,7 @@ import { HardwareService } from '../services/hardware.service';
 import { ActivatedRoute } from '@angular/router';
 import { DeviceConditions } from '../models-enums/deviceConditions';
 import { IsLicensed } from '../models-enums/licensed';
+import { DeviceTypes } from '../models-enums/deviceType';
 
 @Component({
   selector: 'app-hardware-detail',
@@ -17,6 +18,7 @@ export class HardwareDetailComponent implements OnInit {
   _hardware: HardwareDetail;
   deviceConditions: DeviceConditions = new DeviceConditions();
   deviceLicensed: IsLicensed = new IsLicensed();
+  deviceType: DeviceTypes = new DeviceTypes();
 
   formHardware: FormGroup;
 
@@ -28,7 +30,6 @@ export class HardwareDetailComponent implements OnInit {
       deviceLocalization: ['', Validators.required],
       deviceOwnerUserName: ['', Validators.required],
       deviceTag: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
-      deviceType: ['', Validators.required],
       deviceBrand: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
       deviceModel: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       deviceSO: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(40)]],

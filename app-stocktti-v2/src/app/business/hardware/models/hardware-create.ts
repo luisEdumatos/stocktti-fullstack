@@ -5,7 +5,7 @@ export class HardwareCreate {
   deviceLocalization: string;
   deviceOwnerUserName: string;
   deviceTag: string;
-  deviceType: string;
+  deviceType: string = "DESKTOP";
   deviceBrand: string;
   deviceModel: string;
   deviceSO: string;
