@@ -8,6 +8,7 @@ import { HardwareService } from '../services/hardware.service';
 import { DeviceConditions } from '../models-enums/deviceConditions';
 import { IsLicensed } from '../models-enums/licensed';
 import { DeviceTypes } from '../models-enums/deviceType';
+import { BroadCastService } from 'src/app/broadcast.service';
 
 @Component({
   selector: 'app-hardware-create',
@@ -21,12 +22,13 @@ export class HardwareCreateComponent implements OnInit {
   deviceConditions: DeviceConditions = new DeviceConditions();
   deviceLicensed: IsLicensed = new IsLicensed();
   deviceType: DeviceTypes = new DeviceTypes();
-
   formHardware: FormGroup;
+  spinner = false;
 
   constructor(private activatedRoute: ActivatedRoute, private hardwareService: HardwareService, private fb: FormBuilder, private location: Location) { }
 
   ngOnInit(): void {
+    this.broadCast();
     this._hardwareCreate = new HardwareCreate();
     this._hardwareCreate.client = new HardwareClient();
     this._hardwareCreate.client.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
@@ -51,12 +53,25 @@ export class HardwareCreateComponent implements OnInit {
   }
 
   createHardware(): void {
+    BroadCastService.get("spinner").emit(true);
     this.hardwareService.createHardware(this._hardwareCreate).subscribe({
-      next: hardware => console.log('Hardware create with sucess', hardware),
-      error: err => console.log('Error', err)
+      next: hardware => {
+        console.log('Hardware create with sucess', hardware)
+        BroadCastService.get("spinner").emit(false);
+      },
+      error: err => {
+        console.log('Error', err);
+        BroadCastService.get("spinner").emit(false);
+      }
     });
     alert('Novo Hardware adicionado com sucesso!');
     this.location.back();
+  }
+
+  broadCast(): void {
+    BroadCastService.get("spinner").subscribe((spinner: boolean) => {
+      this.spinner = spinner;
+    });
   }
 
 }

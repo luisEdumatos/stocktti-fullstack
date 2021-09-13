@@ -17,9 +17,12 @@ export class ClientComponent implements OnInit {
 
   _filterBy: string;
 
+  spinner = false;
+
   constructor(private clientService: ClientService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
+    this.broadCast();
     this.getClients();
   }
 
@@ -68,4 +71,9 @@ export class ClientComponent implements OnInit {
     return this._filterBy;
   }
 
+  broadCast(): void {
+    BroadCastService.get("spinner").subscribe((spinner: boolean) => {
+      this.spinner = spinner;
+    });
+  }
 }

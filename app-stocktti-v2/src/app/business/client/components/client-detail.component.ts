@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClientDetail } from '../models/client-detail';
 import { ClientService } from '../services/client.service';
+import { BroadCastService } from 'src/app/broadcast.service';
 
 @Component({
   selector: 'app-client-detail',
@@ -15,9 +16,12 @@ export class ClientDetailComponent implements OnInit {
 
   formClient: FormGroup;
 
+  spinner = false;
+
   constructor(private activatedRoute: ActivatedRoute, private clientService: ClientService, private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.broadCast();
     this.getClientById();
     this.formClient = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
@@ -31,21 +35,37 @@ export class ClientDetailComponent implements OnInit {
   }
 
   getClientById(): void {
+    BroadCastService.get("spinner").emit(true);
     this.clientService.findById(+this.activatedRoute.snapshot.paramMap.get('id')).subscribe({
-      next: client => this._client = client,
-      error: err => console.log('Error', err)
+      next: client => {
+        this._client = client;
+        BroadCastService.get("spinner").emit(false);
+      },
+      error: err => {
+        console.log('Error', err);
+        BroadCastService.get("spinner").emit(false);
+      }
     });
   }
 
   update(): void {
+    BroadCastService.get("spinner").emit(true);
     this.clientService.update(this._client).subscribe({
       next(client) {
         console.log('Client saved with success');
+        BroadCastService.get("spinner").emit(false);
         alert('Cliente atualizado com sucesso!');
       },
-      error: err => console.log(`Error`, err)
+      error: err =>  {
+        console.log(`Error`, err);
+        BroadCastService.get("spinner").emit(false);
+      }
     });
-
   }
 
+  broadCast(): void {
+    BroadCastService.get("spinner").subscribe((spinner: boolean) => {
+      this.spinner = spinner;
+    });
+  }
 }

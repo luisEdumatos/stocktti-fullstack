@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DeviceConditions } from '../models-enums/deviceConditions';
 import { IsLicensed } from '../models-enums/licensed';
 import { DeviceTypes } from '../models-enums/deviceType';
+import { BroadCastService } from 'src/app/broadcast.service';
 
 @Component({
   selector: 'app-hardware-detail',
@@ -19,12 +20,13 @@ export class HardwareDetailComponent implements OnInit {
   deviceConditions: DeviceConditions = new DeviceConditions();
   deviceLicensed: IsLicensed = new IsLicensed();
   deviceType: DeviceTypes = new DeviceTypes();
-
   formHardware: FormGroup;
+  spinner = false;
 
   constructor(private activatedRoute: ActivatedRoute, private hardwareService: HardwareService, private location: Location, private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.broadCast();
     this.getHardwareById();
     this.formHardware = this.fb.group({
       deviceLocalization: ['', Validators.required],
@@ -47,23 +49,41 @@ export class HardwareDetailComponent implements OnInit {
   }
 
   getHardwareById(): void {
+    BroadCastService.get("spinner").emit(true);
     this.hardwareService.findById(+this.activatedRoute.snapshot.paramMap.get('hardware_id')).subscribe({
-      next: hardware => this._hardware = hardware,
-      error: err => console.log('Error', err)
+      next: hardware => {
+        this._hardware = hardware;
+        BroadCastService.get("spinner").emit(false);
+      },
+      error: err => {
+        console.log('Error', err);
+        BroadCastService.get("spinner").emit(false);
+      }
     });
   }
 
   update(): void {
+    BroadCastService.get("spinner").emit(true);
     this.hardwareService.update(this._hardware).subscribe({
       next(hardware) {
         console.log('Hardware saved with success');
+        BroadCastService.get("spinner").emit(false);
         alert('Hardware atualizado com sucesso!');
       },
-      error: err => console.log(`Error`, err)
+      error: err => {
+        console.log(`Error`, err);
+        BroadCastService.get("spinner").emit(false);
+      }
     });
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  broadCast(): void {
+    BroadCastService.get("spinner").subscribe((spinner: boolean) => {
+      this.spinner = spinner;
+    });
   }
 }

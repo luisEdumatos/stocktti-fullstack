@@ -13,10 +13,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
 import { DropdownModule } from 'primeng/dropdown';
 import { SelectButtonModule } from 'primeng/selectbutton';
-import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 import { ClientComponent } from './business/client/components/client.component';
 import { HardwareComponent } from './business/hardware/components/hardware.component';
@@ -61,7 +60,6 @@ import { RegisterComponent } from './security/register/register.component';
     InputMaskModule,
     DropdownModule,
     SelectButtonModule,
-    ToastModule,
     ConfirmDialogModule,
     ProgressSpinnerModule
   ],

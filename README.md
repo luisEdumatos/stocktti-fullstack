@@ -40,7 +40,7 @@ senha: 123456
 
 Este será o mesmo usuário que existirá quando o sistema estiver disponível em alguma plataforma de deploy. A ideia é que as pessoas tenham acesso a esse sistema livremente para testar o projeto. 
 
-- Ideias futuras
+- Ideias futuras -
 
 Este projeto ainda está em construção e alguns detalhes serão ajustados, como especificações de campos e layout. 
 

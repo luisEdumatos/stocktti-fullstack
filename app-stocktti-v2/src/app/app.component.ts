@@ -10,7 +10,6 @@ import { TokenStorageService } from './security/_services/token-storage.service'
 export class AppComponent implements OnInit {
   isLoggedIn = false;
   username?: string;
-  spinner = false;
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
@@ -19,13 +18,9 @@ export class AppComponent implements OnInit {
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
-
       this.username = user.username;
     }
 
-    BroadCastService.get("spinner").subscribe((spinner: boolean) => {
-      this.spinner = spinner;
-    })
   }
 
   logout(): void {

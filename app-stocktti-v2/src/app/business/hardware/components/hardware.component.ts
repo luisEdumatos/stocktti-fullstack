@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { BroadCastService } from 'src/app/broadcast.service';
 import { Hardware } from '../models/hardware';
 import { HardwareService } from '../services/hardware.service';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-hardware',
@@ -14,25 +16,34 @@ export class HardwareComponent implements OnInit {
 
   filteredHardwares: Hardware[];
   _filterBy: string;
+  spinner = false;
 
-  constructor(private hardwareService: HardwareService) { }
+  constructor(private hardwareService: HardwareService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
+    this.broadCast();
     this.filteredHardwares = this.hardwares;
   }
 
   deleteById(hardware_id: number): void {
-    const confirma = confirm(`Tem certeza que deseja excluir este equipamento?`);
-    if (confirma) {
-      this.hardwares = this.hardwares.filter(h => h.id !== hardware_id);
-      this.filteredHardwares = this.filteredHardwares.filter(h => h.id !== hardware_id);
-      this.hardwareService.deleteById(hardware_id).subscribe({
-        next: () => {
-          console.log(`Hardware with id ${hardware_id} deleted with sucess. `);
-        },
-        error: err => console.log('Error', err)
-      })
-    }
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir este equipamento??',
+      accept: () => {
+        BroadCastService.get("spinner").emit(true);
+        this.hardwares = this.hardwares.filter(h => h.id !== hardware_id);
+        this.filteredHardwares = this.filteredHardwares.filter(h => h.id !== hardware_id);
+        this.hardwareService.deleteById(hardware_id).subscribe({
+          next: () => {
+            console.log(`Hardware with id ${hardware_id} deleted with sucess. `);
+            BroadCastService.get("spinner").emit(false);
+          },
+          error: err => {
+            console.log('Error', err);
+            BroadCastService.get("spinner").emit(false);
+          }
+        });
+      }
+    });
   }
 
   set filter(value: string) {
@@ -43,5 +54,11 @@ export class HardwareComponent implements OnInit {
 
   get filter() {
     return this._filterBy;
+  }
+
+  broadCast(): void {
+    BroadCastService.get("spinner").subscribe((spinner: boolean) => {
+      this.spinner = spinner;
+    });
   }
 }
