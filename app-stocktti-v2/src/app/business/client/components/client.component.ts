@@ -1,6 +1,8 @@
 import { ClientService } from './../services/client.service';
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../models/client';
+import { ConfirmationService } from 'primeng/api';
+import { BroadCastService } from 'src/app/broadcast.service';
 
 @Component({
   selector: 'app-client',
@@ -15,33 +17,45 @@ export class ClientComponent implements OnInit {
 
   _filterBy: string;
 
-  constructor(private clientService: ClientService) { }
+  constructor(private clientService: ClientService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
     this.getClients();
   }
 
   getClients(): void {
+    BroadCastService.get("spinner").emit(true);
     this.clientService.listAll().subscribe({
       next: clients => {
         this._clients = clients;
         this.filteredClients = this._clients;
+        BroadCastService.get("spinner").emit(false);
       },
-      error: err => console.log('Error', err)
+      error: err => {
+        console.log('Error', err);
+        BroadCastService.get("spinner").emit(false);
+      }
     });
   }
 
   deleteById(client_id: number): void {
-    const confirma = confirm(`Tem certeza que deseja excluir este cliente?`);
-    if (confirma) {
-      this.clientService.deleteById(client_id).subscribe({
-        next: () => {
-          console.log(`Client with id ${client_id} deleted with sucess. `);
-          this.getClients();
-        },
-        error: err => console.log('Error', err)
-      });
-    }
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir este cliente??',
+      accept: () => {
+        BroadCastService.get("spinner").emit(true);
+        this.clientService.deleteById(client_id).subscribe({
+          next: () => {
+            console.log(`Client with id ${client_id} deleted with sucess. `);
+            this.getClients();
+          },
+          error: err => {
+            console.log('Error', err);
+            BroadCastService.get("spinner").emit(false);
+          }
+        });
+      }
+    });
+
   }
 
   set filter(value: string) {
@@ -53,4 +67,5 @@ export class ClientComponent implements OnInit {
   get filter() {
     return this._filterBy;
   }
+
 }

@@ -6,13 +6,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {ButtonModule} from 'primeng/button';
-import {TableModule} from 'primeng/table';
-import {ToolbarModule} from 'primeng/toolbar';
-import {InputTextModule} from 'primeng/inputtext';
-import {InputMaskModule} from 'primeng/inputmask';
-import {DropdownModule} from 'primeng/dropdown';
-import {SelectButtonModule} from 'primeng/selectbutton';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { ToolbarModule } from 'primeng/toolbar';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { DropdownModule } from 'primeng/dropdown';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 import { ClientComponent } from './business/client/components/client.component';
 import { HardwareComponent } from './business/hardware/components/hardware.component';
@@ -27,6 +31,7 @@ import { authInterceptorProviders } from './security/_helpers/auth.interceptor';
 import { LoginComponent } from './security/login/login.component';
 import { RegisterComponent } from './security/register/register.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +45,7 @@ import { RegisterComponent } from './security/register/register.component';
     HomeComponent,
     AuthenticationComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,9 +60,12 @@ import { RegisterComponent } from './security/register/register.component';
     InputTextModule,
     InputMaskModule,
     DropdownModule,
-    SelectButtonModule
+    SelectButtonModule,
+    ToastModule,
+    ConfirmDialogModule,
+    ProgressSpinnerModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

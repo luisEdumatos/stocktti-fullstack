@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { HardwareCreate } from './../models/hardware-create';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
@@ -8,7 +9,7 @@ import { HardwareDetail } from '../models/hardware-detail';
   providedIn: 'root'
 })
 export class HardwareService {
-  private hardwareUrl: string = 'http://localhost:8080/api/v1/hardware';
+  private hardwareUrl: string = environment.apiUrl + 'hardware';
 
   constructor(private httpClient: HttpClient) { }
 

@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
@@ -10,7 +11,7 @@ import { ClientDetail } from '../models/client-detail';
 })
 export class ClientService {
 
-  private clientsUrl: string = 'http://localhost:8080/api/v1/client';
+  private clientsUrl: string = environment.apiUrl + 'client';
 
   constructor(private httpClient: HttpClient) { }
 
