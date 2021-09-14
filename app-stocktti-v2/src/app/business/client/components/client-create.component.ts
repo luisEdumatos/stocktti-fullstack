@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClientCreate } from '../models/client-create';
 import { ClientService } from '../services/client.service';
 import { BroadCastService } from 'src/app/broadcast.service';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-client-create',
   templateUrl: '../templates/client-create.component.html',
-  styleUrls: ['../styles/client-create.component.css']
+  styleUrls: ['../styles/client-create.component.css'],
+  providers: [MessageService]
 })
 export class ClientCreateComponent implements OnInit {
 
@@ -18,7 +19,7 @@ export class ClientCreateComponent implements OnInit {
 
   spinner = false;
 
-  constructor(private clientService: ClientService, private fb: FormBuilder, private location: Location) { }
+  constructor(private clientService: ClientService, private fb: FormBuilder, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.broadCast();
@@ -40,14 +41,14 @@ export class ClientCreateComponent implements OnInit {
       next: client => {
         console.log('Client create with sucess', client);
         BroadCastService.get("spinner").emit(false);
+        this.messageService.add({severity:'success', summary: 'Sucesso!', detail: 'Novo cliente adicionado ao sistema.'});
       },
       error: err => {
         console.log('Error', err);
         BroadCastService.get("spinner").emit(false);
+        this.messageService.add({severity:'error', summary: 'Erro', detail: 'Ocorreu um erro ao criar o cliente, verifique novamente os campos.'});
       }
     });
-    alert('Novo Cliente adicionado com sucesso!');
-    this.location.back();
   }
 
   broadCast(): void {

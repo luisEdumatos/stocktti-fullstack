@@ -3,11 +3,13 @@ import { BroadCastService } from 'src/app/broadcast.service';
 import { Hardware } from '../models/hardware';
 import { HardwareService } from '../services/hardware.service';
 import { ConfirmationService } from 'primeng/api';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-hardware',
   templateUrl: '../templates/hardware.component.html',
-  styleUrls: ['../styles/hardware.component.css']
+  styleUrls: ['../styles/hardware.component.css'],
+  providers: [MessageService]
 })
 export class HardwareComponent implements OnInit {
 
@@ -18,7 +20,7 @@ export class HardwareComponent implements OnInit {
   _filterBy: string;
   spinner = false;
 
-  constructor(private hardwareService: HardwareService, private confirmationService: ConfirmationService) { }
+  constructor(private hardwareService: HardwareService, private confirmationService: ConfirmationService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.broadCast();
@@ -36,10 +38,12 @@ export class HardwareComponent implements OnInit {
           next: () => {
             console.log(`Hardware with id ${hardware_id} deleted with sucess. `);
             BroadCastService.get("spinner").emit(false);
+            this.messageService.add({severity:'success', summary: 'Sucesso!', detail: 'O equipamento foi removido do inventário.'});
           },
           error: err => {
             console.log('Error', err);
             BroadCastService.get("spinner").emit(false);
+            this.messageService.add({severity:'error', summary: 'Erro...', detail: 'Ocorreu um erro ao deletar. Contate o administrador.'});
           }
         });
       }

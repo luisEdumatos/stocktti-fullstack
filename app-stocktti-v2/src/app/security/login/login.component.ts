@@ -4,11 +4,13 @@ import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { BroadCastService } from 'src/app/broadcast.service';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [MessageService]
 })
 export class LoginComponent implements OnInit {
   form: any = {
@@ -21,7 +23,7 @@ export class LoginComponent implements OnInit {
   formLogin: FormGroup;
   spinner = false;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router,  private fb: FormBuilder) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router,  private fb: FormBuilder, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.broadCast();
@@ -54,7 +56,7 @@ export class LoginComponent implements OnInit {
       err => {
         this.errorMessage = err.error.message;
         BroadCastService.get("spinner").emit(false);
-        alert("Falha no login...certifique o usuário e senha digitados.");
+        this.messageService.add({severity:'error', summary:'Erro', detail:'Falha no login...certifique o usuário e senha digitados'});
         this.isLoginFailed = true;
       }
     );

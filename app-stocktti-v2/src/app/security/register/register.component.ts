@@ -3,11 +3,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
 import { BroadCastService } from 'src/app/broadcast.service';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [MessageService]
 })
 export class RegisterComponent implements OnInit {
   form: any = {
@@ -21,7 +23,7 @@ export class RegisterComponent implements OnInit {
   formRegister: FormGroup;
   spinner = false;
 
-  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) { }
+  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.broadCast();
@@ -46,13 +48,12 @@ export class RegisterComponent implements OnInit {
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         BroadCastService.get("spinner").emit(false);
-        alert('Nova conta criada com sucesso, você já pode acessar o sistema!');
-        this.router.navigate(['/login']);
+        this.messageService.add({severity:'success', summary: 'Sucesso!', detail: 'Sua nova conta foi criada, faça login no sistema!'});
       },
       err => {
         this.errorMessage = err.error.message;
         BroadCastService.get("spinner").emit(false);
-        alert("Falha ao criar a conta...certifique as regras de criação.");
+        this.messageService.add({severity:'error', summary: 'Erro...', detail: 'Falha ao criar a conta, certifique as regras de criação'});
         this.isSignUpFailed = true;
       }
     );

@@ -14,7 +14,7 @@
 }
 
 .p-button-outlined {
-  width: 100%;
+  margin-right: 3px;
 }
 
 .form-input.is-invalid,.was-validated .form-input:invalid {

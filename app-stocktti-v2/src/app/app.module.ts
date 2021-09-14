@@ -16,6 +16,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import {ToastModule} from 'primeng/toast';
 
 import { ClientComponent } from './business/client/components/client.component';
 import { HardwareComponent } from './business/hardware/components/hardware.component';
@@ -61,7 +62,8 @@ import { RegisterComponent } from './security/register/register.component';
     DropdownModule,
     SelectButtonModule,
     ConfirmDialogModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    ToastModule
   ],
   providers: [authInterceptorProviders, ConfirmationService],
   bootstrap: [AppComponent]

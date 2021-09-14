@@ -8,11 +8,13 @@ import { DeviceConditions } from '../models-enums/deviceConditions';
 import { IsLicensed } from '../models-enums/licensed';
 import { DeviceTypes } from '../models-enums/deviceType';
 import { BroadCastService } from 'src/app/broadcast.service';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-hardware-detail',
   templateUrl: '../templates/hardware-detail.component.html',
-  styleUrls: ['../styles/hardware-detail.component.css']
+  styleUrls: ['../styles/hardware-detail.component.css'],
+  providers: [MessageService]
 })
 export class HardwareDetailComponent implements OnInit {
 
@@ -23,7 +25,7 @@ export class HardwareDetailComponent implements OnInit {
   formHardware: FormGroup;
   spinner = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private hardwareService: HardwareService, private location: Location, private fb: FormBuilder) { }
+  constructor(private activatedRoute: ActivatedRoute, private hardwareService: HardwareService, private location: Location, private fb: FormBuilder, private messageService: MessageService) { }
 
   ngOnInit() {
     this.broadCast();
@@ -65,14 +67,15 @@ export class HardwareDetailComponent implements OnInit {
   update(): void {
     BroadCastService.get("spinner").emit(true);
     this.hardwareService.update(this._hardware).subscribe({
-      next(hardware) {
+      next: hardware => {
         console.log('Hardware saved with success');
         BroadCastService.get("spinner").emit(false);
-        alert('Hardware atualizado com sucesso!');
+        this.messageService.add({severity:'success', summary: 'Sucesso!', detail: 'As informações do equipamento foram atualizadas.'});
       },
       error: err => {
         console.log(`Error`, err);
         BroadCastService.get("spinner").emit(false);
+        this.messageService.add({severity:'error', summary: 'Erro', detail: 'Ocorreu um erro na atualização, verifique novamente os campos.'});
       }
     });
   }

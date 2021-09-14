@@ -4,11 +4,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClientDetail } from '../models/client-detail';
 import { ClientService } from '../services/client.service';
 import { BroadCastService } from 'src/app/broadcast.service';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-client-detail',
   templateUrl: '../templates/client-detail.component.html',
-  styleUrls: ['../styles/client-detail.component.css']
+  styleUrls: ['../styles/client-detail.component.css'],
+  providers: [MessageService]
 })
 export class ClientDetailComponent implements OnInit {
 
@@ -18,7 +20,7 @@ export class ClientDetailComponent implements OnInit {
 
   spinner = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private clientService: ClientService, private fb: FormBuilder) { }
+  constructor(private activatedRoute: ActivatedRoute, private clientService: ClientService, private fb: FormBuilder, private messageService: MessageService) { }
 
   ngOnInit() {
     this.broadCast();
@@ -51,13 +53,14 @@ export class ClientDetailComponent implements OnInit {
   update(): void {
     BroadCastService.get("spinner").emit(true);
     this.clientService.update(this._client).subscribe({
-      next(client) {
+      next: client => {
         console.log('Client saved with success');
         BroadCastService.get("spinner").emit(false);
-        alert('Cliente atualizado com sucesso!');
+        this.messageService.add({severity:'success', summary: 'Sucesso!', detail: 'As informações do cliente foram atualizadas.'});
       },
       error: err =>  {
         console.log(`Error`, err);
+        this.messageService.add({severity:'error', summary: 'Erro', detail: 'Ocorreu um erro na atualização, verifique novamente os campos.'});
         BroadCastService.get("spinner").emit(false);
       }
     });

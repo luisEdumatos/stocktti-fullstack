@@ -1,5 +1,4 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Location } from '@angular/common';
 import { HardwareClient } from '../models-enums/hardwareClient';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -9,11 +8,13 @@ import { DeviceConditions } from '../models-enums/deviceConditions';
 import { IsLicensed } from '../models-enums/licensed';
 import { DeviceTypes } from '../models-enums/deviceType';
 import { BroadCastService } from 'src/app/broadcast.service';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-hardware-create',
   templateUrl: '../templates/hardware-create.component.html',
-  styleUrls: ['../styles/hardware-create.component.css']
+  styleUrls: ['../styles/hardware-create.component.css'],
+  providers: [MessageService]
 })
 
 export class HardwareCreateComponent implements OnInit {
@@ -25,7 +26,7 @@ export class HardwareCreateComponent implements OnInit {
   formHardware: FormGroup;
   spinner = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private hardwareService: HardwareService, private fb: FormBuilder, private location: Location) { }
+  constructor(private activatedRoute: ActivatedRoute, private hardwareService: HardwareService, private fb: FormBuilder, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.broadCast();
@@ -58,14 +59,14 @@ export class HardwareCreateComponent implements OnInit {
       next: hardware => {
         console.log('Hardware create with sucess', hardware)
         BroadCastService.get("spinner").emit(false);
+        this.messageService.add({severity:'success', summary: 'Sucesso!', detail: 'Novo equipamento adicionado ao cliente.'});
       },
       error: err => {
         console.log('Error', err);
         BroadCastService.get("spinner").emit(false);
+        this.messageService.add({severity:'error', summary: 'Erro', detail: 'Ocorreu um erro ao criar o equipamento, verifique novamente os campos.'});
       }
     });
-    alert('Novo Hardware adicionado com sucesso!');
-    this.location.back();
   }
 
   broadCast(): void {

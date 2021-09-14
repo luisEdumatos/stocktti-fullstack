@@ -11,10 +11,7 @@ export class HeaderComponent  {
   constructor(private tokenStorageService: TokenStorageService) { }
 
   logout(): void {
-    const confirma = confirm(`Deseja realmente sair do sistema?`);
-    if (confirma) {
-      this.tokenStorageService.signOut();
-      window.location.reload();
-    }
+    this.tokenStorageService.signOut();
+    window.location.reload();
   }
 }
