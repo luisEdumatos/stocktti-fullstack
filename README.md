@@ -1,5 +1,13 @@
 # Sistema StockTTi - Sistema de gerenciamento de inventário de Hardware 
 
+Teste o sistema: Acesse https://app-stocktti.herokuapp.com/
+
+Você poderá criar uma conta ou, caso preferir, acesse com:
+Login: admin
+Senha: 123456
+
+Como está hospedado no heroku, o primeiro acesso é mais lento devido ao fato de por padrão a api e o app ficarem "desligados". 
+
 ## Sobre o sistema 📋
 
 O projeto consiste em um sistema de gerenciamento de estações de trabalhos dos clientes para empresas de TI terceirizadas. 
