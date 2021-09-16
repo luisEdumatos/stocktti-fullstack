@@ -16,8 +16,9 @@ O projeto consiste em um sistema de gerenciamento de estações de trabalhos dos
 
 As empresas de TI terceirizadas geralmente atendem diversos clientes e, para poder realizar um atendimento de qualidade, o controle de informações é essencial. 
 
-O sistema StockTTI permite que TI possa cadastrar seus clientes e o inventário de hardware de cada um deles, podendo assim gerenciar o inventário com várias
-informações importantes como as condições da máquina, sistema operacional instalado, especificações, usuário que a utiliza, etc. 
+O sistema StockTTI permite que o prestador de serviço de TI possa cadastrar seus clientes e o inventário de hardware de cada um deles, podendo assim gerenciar o inventário com várias informações importantes como por exemplo as condições da máquina, sistema operacional instalado, especificações, usuário que a utiliza, etc. 
+
+Esse controle também facilitará o trabalho da equipe de suporte para saber as condições de uma estação e o usuário relacionado a ela, chegando a conclusões relacionadas a necessidade de substituição por lentidão ou até sobre o licenciamento dos principais softwares utilizados na máquina.
 
 ## Funcionamento do sistema ⚙️
 
@@ -44,11 +45,7 @@ A API possui no caminho \src\main\resources 3 arquivos do tipo .properties que s
 
 - Autenticação
 
-A autenticação do sistema utiliza o JWT. No momento, o usuário cadastrado no banco de produção é: 
-login: admin
-senha: 123456 
-
-Este será o mesmo usuário que existirá quando o sistema estiver disponível em alguma plataforma de deploy. A ideia é que as pessoas tenham acesso a esse sistema livremente para testar o projeto. 
+A autenticação do sistema utiliza o JWT nos dois lados da aplicação. A senha criada pelos usuários é transformada em um token e armazenada no banco de dados, garantindo assim integridade e segurança. 
 
 - Ideias futuras -
 
