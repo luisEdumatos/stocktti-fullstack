@@ -1,6 +1,6 @@
 # Sistema StockTTi - Sistema de gerenciamento de inventário de Hardware 
 
-Teste o sistema: Acesse https://app-stocktti.herokuapp.com/
+### Teste o sistema: Acesse https://app-stocktti.herokuapp.com/
 
 Você poderá criar uma conta ou, caso preferir, acesse com:
 
@@ -9,6 +9,12 @@ Login: admin
 Senha: 123456
 
 Como está hospedado no heroku, o primeiro acesso é mais lento devido ao fato de por padrão a api e o app ficarem "desligados". 
+
+### Container Docker
+
+A API foi adicionada a um container Docker. Caso queira executar o container da aplicação e estiver utilizando Linux utilize o seguinte comando: 
+
+sudo docker container run -d -p 8080:8080 luisedumatos/api-stocktti:v1
 
 ## Sobre o sistema 📋
 
