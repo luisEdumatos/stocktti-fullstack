@@ -12,9 +12,14 @@ Como está hospedado no heroku, o primeiro acesso é mais lento devido ao fato d
 
 ### Container Docker
 
-A API foi adicionada a um container Docker. Caso queira executar o container da aplicação e estiver utilizando Linux utilize o seguinte comando: 
+A API e o APP-FrontEnd foram adicionada a um container Docker.
+
+Caso queira, você poderá executar os dois containers da aplicação (API e APP). Utilizando linux, execute os dois comandos:
 
 sudo docker container run -d -p 8080:8080 luisedumatos/api-stocktti:v1
+sudo docker container run -d -p 4200:80 luisedumatos/app-stocktti:v1
+
+O APP está rodando em um servidor nginx, por isso o mapeamento é feito para a porta 80. 
 
 ## Sobre o sistema 📋
 
