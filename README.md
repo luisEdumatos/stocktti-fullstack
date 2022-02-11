@@ -16,11 +16,11 @@ A API e o APP-FrontEnd foram adicionada a um container Docker.
 
 Caso queira, você poderá executar os dois containers da aplicação (API e APP). Utilizando linux, execute os dois comandos:
 
-sudo docker container run -d -p 8080:8080 luisedumatos/api-stocktti:v1
+sudo docker container run -d -p 8080:8080 luisedumatos/api-stocktti-v2
 
 sudo docker container run -d -p 4200:80 luisedumatos/app-stocktti:v1
 
-O APP está rodando em um servidor nginx, por isso o mapeamento é feito para a porta 80. 
+O APP está rodando em um servidor nginx, por isso o mapeamento é feito para a porta 80. Execute o app em localhost:4200.
 
 ## Sobre o sistema 📋
 
